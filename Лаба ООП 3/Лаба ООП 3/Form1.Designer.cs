@@ -32,19 +32,19 @@
             this.menuStrip_Main = new System.Windows.Forms.MenuStrip();
             this.statusStrip_AllStat = new System.Windows.Forms.StatusStrip();
             this.toolStripMenuItem_File = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1_RealTimeModel = new System.Windows.Forms.GroupBox();
+            this.groupBox_RealTimeModel = new System.Windows.Forms.GroupBox();
             this.listBox_ModelStations = new System.Windows.Forms.ListBox();
             this.toolStrip_MainTools = new System.Windows.Forms.ToolStrip();
             this.toolStripMenuItem_Modeling = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton_Start = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton_Stop = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem_Service = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemModelSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_ExportStat = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip_Main.SuspendLayout();
-            this.groupBox1_RealTimeModel.SuspendLayout();
+            this.groupBox_RealTimeModel.SuspendLayout();
             this.toolStrip_MainTools.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,15 +76,15 @@
             this.toolStripMenuItem_File.Size = new System.Drawing.Size(57, 24);
             this.toolStripMenuItem_File.Text = "Файл";
             // 
-            // groupBox1_RealTimeModel
+            // groupBox_RealTimeModel
             // 
-            this.groupBox1_RealTimeModel.Controls.Add(this.listBox_ModelStations);
-            this.groupBox1_RealTimeModel.Location = new System.Drawing.Point(12, 56);
-            this.groupBox1_RealTimeModel.Name = "groupBox1_RealTimeModel";
-            this.groupBox1_RealTimeModel.Size = new System.Drawing.Size(347, 401);
-            this.groupBox1_RealTimeModel.TabIndex = 2;
-            this.groupBox1_RealTimeModel.TabStop = false;
-            this.groupBox1_RealTimeModel.Text = "Модель в реальном времени";
+            this.groupBox_RealTimeModel.Controls.Add(this.listBox_ModelStations);
+            this.groupBox_RealTimeModel.Location = new System.Drawing.Point(12, 56);
+            this.groupBox_RealTimeModel.Name = "groupBox_RealTimeModel";
+            this.groupBox_RealTimeModel.Size = new System.Drawing.Size(347, 401);
+            this.groupBox_RealTimeModel.TabIndex = 2;
+            this.groupBox_RealTimeModel.TabStop = false;
+            this.groupBox_RealTimeModel.Text = "Модель в реальном времени";
             // 
             // listBox_ModelStations
             // 
@@ -99,7 +99,7 @@
             // 
             this.toolStrip_MainTools.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton_Start,
-            this.toolStripButton1,
+            this.toolStripButton_Stop,
             this.toolStripSeparator1});
             this.toolStrip_MainTools.Location = new System.Drawing.Point(0, 28);
             this.toolStrip_MainTools.Name = "toolStrip_MainTools";
@@ -124,14 +124,14 @@
             this.toolStripButton_Start.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton_Start.Text = "Начать моделирование";
             // 
-            // toolStripButton1
+            // toolStripButton_Stop
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "Остановить моделирование";
+            this.toolStripButton_Stop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton_Stop.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Stop.Image")));
+            this.toolStripButton_Stop.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_Stop.Name = "toolStripButton_Stop";
+            this.toolStripButton_Stop.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton_Stop.Text = "Остановить моделирование";
             // 
             // toolStripSeparator1
             // 
@@ -170,7 +170,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 482);
             this.Controls.Add(this.toolStrip_MainTools);
-            this.Controls.Add(this.groupBox1_RealTimeModel);
+            this.Controls.Add(this.groupBox_RealTimeModel);
             this.Controls.Add(this.statusStrip_AllStat);
             this.Controls.Add(this.menuStrip_Main);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -183,7 +183,7 @@
             this.Text = "Моделирование Маршрутного такси";
             this.menuStrip_Main.ResumeLayout(false);
             this.menuStrip_Main.PerformLayout();
-            this.groupBox1_RealTimeModel.ResumeLayout(false);
+            this.groupBox_RealTimeModel.ResumeLayout(false);
             this.toolStrip_MainTools.ResumeLayout(false);
             this.toolStrip_MainTools.PerformLayout();
             this.ResumeLayout(false);
@@ -197,11 +197,11 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_File;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Modeling;
         private System.Windows.Forms.StatusStrip statusStrip_AllStat;
-        private System.Windows.Forms.GroupBox groupBox1_RealTimeModel;
+        private System.Windows.Forms.GroupBox groupBox_RealTimeModel;
         private System.Windows.Forms.ListBox listBox_ModelStations;
         private System.Windows.Forms.ToolStrip toolStrip_MainTools;
         private System.Windows.Forms.ToolStripButton toolStripButton_Start;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton_Stop;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_ExportStat;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemModelSettings;
