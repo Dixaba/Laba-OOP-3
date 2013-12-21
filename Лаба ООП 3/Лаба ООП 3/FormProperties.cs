@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace Лаба_ООП_3
 {
-    public partial class MainForm : Form
+    public partial class FormProperties : Form
     {
-        public MainForm()
+        public FormProperties()
         {
             InitializeComponent();
-        }
-
-        FormProperties aba = new FormProperties();
-
-        private void toolStripMenuItem_ModelSettings_Click(object sender, EventArgs e)
-        {
-            aba.ShowDialog();
         }
     }
 }
