@@ -1,6 +1,6 @@
 ﻿namespace Лаба_ООП_3
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Требуется переменная конструктора.
@@ -49,7 +49,6 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.menuStrip_Main.SuspendLayout();
             this.groupBox_RealTimeModel.SuspendLayout();
             this.toolStrip_MainTools.SuspendLayout();
@@ -123,12 +122,11 @@
             // 
             // groupBox_RealTimeModel
             // 
-            this.groupBox_RealTimeModel.Controls.Add(this.checkBox1);
             this.groupBox_RealTimeModel.Controls.Add(this.listBox_ModelStations);
             this.groupBox_RealTimeModel.Location = new System.Drawing.Point(9, 46);
-            this.groupBox_RealTimeModel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox_RealTimeModel.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox_RealTimeModel.Name = "groupBox_RealTimeModel";
-            this.groupBox_RealTimeModel.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox_RealTimeModel.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox_RealTimeModel.Size = new System.Drawing.Size(260, 326);
             this.groupBox_RealTimeModel.TabIndex = 2;
             this.groupBox_RealTimeModel.TabStop = false;
@@ -138,7 +136,7 @@
             // 
             this.listBox_ModelStations.FormattingEnabled = true;
             this.listBox_ModelStations.Location = new System.Drawing.Point(4, 14);
-            this.listBox_ModelStations.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox_ModelStations.Margin = new System.Windows.Forms.Padding(2);
             this.listBox_ModelStations.Name = "listBox_ModelStations";
             this.listBox_ModelStations.Size = new System.Drawing.Size(252, 303);
             this.listBox_ModelStations.TabIndex = 0;
@@ -182,9 +180,9 @@
             // 
             this.groupBox_ModelingProperties.Controls.Add(this.listView_Properties);
             this.groupBox_ModelingProperties.Location = new System.Drawing.Point(274, 46);
-            this.groupBox_ModelingProperties.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox_ModelingProperties.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox_ModelingProperties.Name = "groupBox_ModelingProperties";
-            this.groupBox_ModelingProperties.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox_ModelingProperties.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox_ModelingProperties.Size = new System.Drawing.Size(266, 326);
             this.groupBox_ModelingProperties.TabIndex = 4;
             this.groupBox_ModelingProperties.TabStop = false;
@@ -198,21 +196,11 @@
             this.columnHeader3,
             this.columnHeader4});
             this.listView_Properties.Location = new System.Drawing.Point(4, 17);
-            this.listView_Properties.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView_Properties.Margin = new System.Windows.Forms.Padding(2);
             this.listView_Properties.Name = "listView_Properties";
             this.listView_Properties.Size = new System.Drawing.Size(258, 300);
             this.listView_Properties.TabIndex = 0;
             this.listView_Properties.UseCompatibleStateImageBehavior = false;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(184, 79);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -227,7 +215,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.HelpButton = true;
             this.MainMenuStrip = this.menuStrip_Main;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.ShowIcon = false;
@@ -235,7 +223,6 @@
             this.menuStrip_Main.ResumeLayout(false);
             this.menuStrip_Main.PerformLayout();
             this.groupBox_RealTimeModel.ResumeLayout(false);
-            this.groupBox_RealTimeModel.PerformLayout();
             this.toolStrip_MainTools.ResumeLayout(false);
             this.toolStrip_MainTools.PerformLayout();
             this.groupBox_ModelingProperties.ResumeLayout(false);
@@ -266,7 +253,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.CheckBox checkBox1;
 
     }
 }
