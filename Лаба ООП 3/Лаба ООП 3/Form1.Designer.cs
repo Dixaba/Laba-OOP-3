@@ -49,7 +49,6 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.menuStrip_Main.SuspendLayout();
             this.groupBox_RealTimeModel.SuspendLayout();
             this.toolStrip_MainTools.SuspendLayout();
@@ -147,8 +146,7 @@
             this.toolStrip_MainTools.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton_Start,
             this.toolStripButton_Stop,
-            this.toolStripSeparator1,
-            this.toolStripLabel1});
+            this.toolStripSeparator1});
             this.toolStrip_MainTools.Location = new System.Drawing.Point(0, 24);
             this.toolStrip_MainTools.Name = "toolStrip_MainTools";
             this.toolStrip_MainTools.Size = new System.Drawing.Size(550, 25);
@@ -204,12 +202,6 @@
             this.listView_Properties.TabIndex = 0;
             this.listView_Properties.UseCompatibleStateImageBehavior = false;
             // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(32, 22);
-            this.toolStripLabel1.Text = "GHG";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,7 +253,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
 
     }
 }
