@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Лаба_ООП_3
 {
@@ -10,9 +7,16 @@ namespace Лаба_ООП_3
     {
         Queue<Passenger>[] Stations;
 
-        public CircularRoute()
+        public CircularRoute(UInt32 statcount)
         {
-            
+            Stations = new Queue<Passenger>[StationsCount];
+            StationsCount = statcount;
+            for (int i = 0; i <= StationsCount; i++)
+            {
+                Stations[i] = new Queue<Passenger>();
+            }
         }
+
+       public UInt32 StationsCount { get; set; }
     }
 }
