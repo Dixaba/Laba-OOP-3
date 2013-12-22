@@ -2,9 +2,16 @@
 
 namespace Лаба_ООП_3 
 {
-    public class Passenger   //Тельнов мудак
+    public class Passenger
     {
-        #region Свойства. и к тому же тельнов мудак
+        public Passenger(UInt32 intime, UInt32 instat, UInt32 outstat)
+        {
+            IncomingTime = intime;
+            IncomingStation = instat;
+            ArrivingStation = outstat;
+        }
+
+        #region Свойства
         
         UInt32 IncomingTime { get; set; }
 
@@ -13,8 +20,6 @@ namespace Лаба_ООП_3
         UInt32 IncomingStation { get; set; }
 
         UInt32 ArrivingStation { get; set; }
-
-        UInt32 ArrivingStation2 { get; set; }
 
         #endregion
     }
