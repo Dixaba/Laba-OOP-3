@@ -23,5 +23,10 @@ namespace Лаба_ООП_3
         {
             aba.ShowDialog();
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

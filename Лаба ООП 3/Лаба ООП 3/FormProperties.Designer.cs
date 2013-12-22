@@ -69,10 +69,10 @@
             // 
             this.button_Cancel.AutoSize = true;
             this.button_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_Cancel.Location = new System.Drawing.Point(160, 174);
+            this.button_Cancel.Location = new System.Drawing.Point(162, 174);
             this.button_Cancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button_Cancel.Name = "button_Cancel";
-            this.button_Cancel.Size = new System.Drawing.Size(69, 23);
+            this.button_Cancel.Size = new System.Drawing.Size(67, 23);
             this.button_Cancel.TabIndex = 1;
             this.button_Cancel.Text = "Отменить";
             this.button_Cancel.UseVisualStyleBackColor = true;
@@ -296,7 +296,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button_Cancel;
-            this.ClientSize = new System.Drawing.Size(314, 204);
+            this.ClientSize = new System.Drawing.Size(314, 203);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox_Properties);
             this.Controls.Add(this.button_Cancel);
