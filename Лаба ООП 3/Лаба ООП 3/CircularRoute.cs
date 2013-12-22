@@ -10,6 +10,9 @@ namespace Лаба_ООП_3
     {
         Queue<Passenger>[] Stations;
 
-        public
+        public CircularRoute()
+        {
+            
+        }
     }
 }
