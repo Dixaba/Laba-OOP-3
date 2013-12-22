@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>a1d94c97-fb98-449e-9191-22d6e71fb725</ProjectGuid>
+    <ProjectGuid>{602B2A15-6ECC-45BF-B177-87F275B8BE2A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Лаба_ООП_3</RootNamespace>
