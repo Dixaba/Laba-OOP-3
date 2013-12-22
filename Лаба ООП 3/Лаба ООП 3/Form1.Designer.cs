@@ -49,7 +49,6 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip_Main.SuspendLayout();
             this.groupBox_RealTimeModel.SuspendLayout();
             this.toolStrip_MainTools.SuspendLayout();
@@ -61,12 +60,11 @@
             this.menuStrip_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem_File,
             this.toolStripMenuItem_Modeling,
-            this.toolStripMenuItem_Service,
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem_Service});
             this.menuStrip_Main.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_Main.Name = "menuStrip_Main";
-            this.menuStrip_Main.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip_Main.Size = new System.Drawing.Size(550, 24);
+            this.menuStrip_Main.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip_Main.Size = new System.Drawing.Size(733, 28);
             this.menuStrip_Main.TabIndex = 0;
             this.menuStrip_Main.Text = "Главное меню";
             // 
@@ -75,13 +73,13 @@
             this.toolStripMenuItem_File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem_ExportStat});
             this.toolStripMenuItem_File.Name = "toolStripMenuItem_File";
-            this.toolStripMenuItem_File.Size = new System.Drawing.Size(48, 20);
+            this.toolStripMenuItem_File.Size = new System.Drawing.Size(57, 24);
             this.toolStripMenuItem_File.Text = "Файл";
             // 
             // toolStripMenuItem_ExportStat
             // 
             this.toolStripMenuItem_ExportStat.Name = "toolStripMenuItem_ExportStat";
-            this.toolStripMenuItem_ExportStat.Size = new System.Drawing.Size(194, 22);
+            this.toolStripMenuItem_ExportStat.Size = new System.Drawing.Size(228, 24);
             this.toolStripMenuItem_ExportStat.Text = "Сохранить статистику";
             // 
             // toolStripMenuItem_Modeling
@@ -89,13 +87,13 @@
             this.toolStripMenuItem_Modeling.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem_ModelSettings});
             this.toolStripMenuItem_Modeling.Name = "toolStripMenuItem_Modeling";
-            this.toolStripMenuItem_Modeling.Size = new System.Drawing.Size(109, 20);
+            this.toolStripMenuItem_Modeling.Size = new System.Drawing.Size(136, 24);
             this.toolStripMenuItem_Modeling.Text = "Моделирование";
             // 
             // toolStripMenuItem_ModelSettings
             // 
             this.toolStripMenuItem_ModelSettings.Name = "toolStripMenuItem_ModelSettings";
-            this.toolStripMenuItem_ModelSettings.Size = new System.Drawing.Size(223, 22);
+            this.toolStripMenuItem_ModelSettings.Size = new System.Drawing.Size(268, 24);
             this.toolStripMenuItem_ModelSettings.Text = "Настроить моделирование";
             this.toolStripMenuItem_ModelSettings.Click += new System.EventHandler(this.toolStripMenuItem_ModelSettings_Click);
             // 
@@ -104,32 +102,32 @@
             this.toolStripMenuItem_Service.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem_Help});
             this.toolStripMenuItem_Service.Name = "toolStripMenuItem_Service";
-            this.toolStripMenuItem_Service.Size = new System.Drawing.Size(59, 20);
+            this.toolStripMenuItem_Service.Size = new System.Drawing.Size(71, 24);
             this.toolStripMenuItem_Service.Text = "Сервис";
             // 
             // toolStripMenuItem_Help
             // 
             this.toolStripMenuItem_Help.Name = "toolStripMenuItem_Help";
-            this.toolStripMenuItem_Help.Size = new System.Drawing.Size(120, 22);
+            this.toolStripMenuItem_Help.Size = new System.Drawing.Size(136, 24);
             this.toolStripMenuItem_Help.Text = "Справка";
             // 
             // statusStrip_AllStat
             // 
-            this.statusStrip_AllStat.Location = new System.Drawing.Point(0, 370);
+            this.statusStrip_AllStat.Location = new System.Drawing.Point(0, 460);
             this.statusStrip_AllStat.Name = "statusStrip_AllStat";
-            this.statusStrip_AllStat.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.statusStrip_AllStat.Size = new System.Drawing.Size(550, 22);
+            this.statusStrip_AllStat.Padding = new System.Windows.Forms.Padding(1, 0, 13, 0);
+            this.statusStrip_AllStat.Size = new System.Drawing.Size(733, 22);
             this.statusStrip_AllStat.TabIndex = 1;
             this.statusStrip_AllStat.Text = "Статус исполнения";
             // 
             // groupBox_RealTimeModel
             // 
             this.groupBox_RealTimeModel.Controls.Add(this.listBox_ModelStations);
-            this.groupBox_RealTimeModel.Location = new System.Drawing.Point(9, 46);
-            this.groupBox_RealTimeModel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox_RealTimeModel.Location = new System.Drawing.Point(12, 57);
+            this.groupBox_RealTimeModel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox_RealTimeModel.Name = "groupBox_RealTimeModel";
-            this.groupBox_RealTimeModel.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox_RealTimeModel.Size = new System.Drawing.Size(260, 326);
+            this.groupBox_RealTimeModel.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox_RealTimeModel.Size = new System.Drawing.Size(347, 401);
             this.groupBox_RealTimeModel.TabIndex = 2;
             this.groupBox_RealTimeModel.TabStop = false;
             this.groupBox_RealTimeModel.Text = "Модель в реальном времени";
@@ -137,10 +135,11 @@
             // listBox_ModelStations
             // 
             this.listBox_ModelStations.FormattingEnabled = true;
-            this.listBox_ModelStations.Location = new System.Drawing.Point(4, 14);
-            this.listBox_ModelStations.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox_ModelStations.ItemHeight = 16;
+            this.listBox_ModelStations.Location = new System.Drawing.Point(5, 17);
+            this.listBox_ModelStations.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox_ModelStations.Name = "listBox_ModelStations";
-            this.listBox_ModelStations.Size = new System.Drawing.Size(252, 303);
+            this.listBox_ModelStations.Size = new System.Drawing.Size(335, 372);
             this.listBox_ModelStations.TabIndex = 0;
             // 
             // toolStrip_MainTools
@@ -149,9 +148,9 @@
             this.toolStripButton_Start,
             this.toolStripButton_Stop,
             this.toolStripSeparator1});
-            this.toolStrip_MainTools.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip_MainTools.Location = new System.Drawing.Point(0, 28);
             this.toolStrip_MainTools.Name = "toolStrip_MainTools";
-            this.toolStrip_MainTools.Size = new System.Drawing.Size(550, 25);
+            this.toolStrip_MainTools.Size = new System.Drawing.Size(733, 25);
             this.toolStrip_MainTools.TabIndex = 3;
             this.toolStrip_MainTools.Text = "Инструменты";
             // 
@@ -181,11 +180,11 @@
             // groupBox_ModelingProperties
             // 
             this.groupBox_ModelingProperties.Controls.Add(this.listView_Properties);
-            this.groupBox_ModelingProperties.Location = new System.Drawing.Point(274, 46);
-            this.groupBox_ModelingProperties.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox_ModelingProperties.Location = new System.Drawing.Point(365, 57);
+            this.groupBox_ModelingProperties.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox_ModelingProperties.Name = "groupBox_ModelingProperties";
-            this.groupBox_ModelingProperties.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox_ModelingProperties.Size = new System.Drawing.Size(266, 326);
+            this.groupBox_ModelingProperties.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox_ModelingProperties.Size = new System.Drawing.Size(355, 401);
             this.groupBox_ModelingProperties.TabIndex = 4;
             this.groupBox_ModelingProperties.TabStop = false;
             this.groupBox_ModelingProperties.Text = "Настройки данного моделирования";
@@ -197,25 +196,18 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
-            this.listView_Properties.Location = new System.Drawing.Point(4, 17);
-            this.listView_Properties.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView_Properties.Location = new System.Drawing.Point(5, 21);
+            this.listView_Properties.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView_Properties.Name = "listView_Properties";
-            this.listView_Properties.Size = new System.Drawing.Size(258, 300);
+            this.listView_Properties.Size = new System.Drawing.Size(343, 368);
             this.listView_Properties.TabIndex = 0;
             this.listView_Properties.UseCompatibleStateImageBehavior = false;
             // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(22, 20);
-            this.toolStripMenuItem1.Text = "!";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 392);
+            this.ClientSize = new System.Drawing.Size(733, 482);
             this.Controls.Add(this.groupBox_ModelingProperties);
             this.Controls.Add(this.toolStrip_MainTools);
             this.Controls.Add(this.groupBox_RealTimeModel);
@@ -224,7 +216,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.HelpButton = true;
             this.MainMenuStrip = this.menuStrip_Main;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.ShowIcon = false;
@@ -262,7 +254,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
 
     }
 }
