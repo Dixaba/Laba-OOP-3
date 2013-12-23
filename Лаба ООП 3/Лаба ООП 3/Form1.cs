@@ -31,20 +31,18 @@ namespace Лаба_ООП_3
 
         private void toolStripButton_Start_Click(object sender, EventArgs e)
         {
-            double d = 0;
-            LogisticDistribution logis = new LogisticDistribution(420, 20);
-            LogisticDistribution logis2 = new LogisticDistribution(1020, 25);
-            LogisticDistribution logis3 = new LogisticDistribution(720, 120);
-            for (int i = 0; i <= 1380; i++)
+            uint AvgCount = 25000; // Среднее за сутки
+            uint Count = 0; // Кол-во людей на 1-й остановке за сутки
+            uint LCount = 0; // Кол-во людей на 1-й остановке за минуту
+
+            for (uint i = 0; i < 1440; i++)
             {
-                listBox_ModelStations.Items.Add(i + ": " + (Math.Round(2500 * logis.ProbabilityDensity(i)) 
-                    + Math.Round(2500 * logis2.ProbabilityDensity(i))
-                    + Math.Round(2500 * logis3.ProbabilityDensity(i))));
-                d += Math.Round(2500 * logis.ProbabilityDensity(i)) 
-                    + Math.Round(2500 * logis2.ProbabilityDensity(i)) 
-                    + Math.Round(2500 * logis3.ProbabilityDensity(i));
+                LCount = Distrib.Get(AvgCount, 720, 20, i, 10);
+
+                listBox_ModelStations.Items.Add(i + ": " + LCount);
+                Count += LCount;
             }
-            listBox_ModelStations.Items.Add(d);
+            listBox_ModelStations.Items.Add(Count);
         }
     }
 }
