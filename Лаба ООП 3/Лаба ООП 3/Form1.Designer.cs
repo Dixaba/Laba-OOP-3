@@ -44,15 +44,17 @@
             this.toolStripButton_Stop = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBox_ModelingProperties = new System.Windows.Forms.GroupBox();
-            this.listView_Properties = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.Column1_Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip_Main.SuspendLayout();
+            this.statusStrip_AllStat.SuspendLayout();
             this.groupBox_RealTimeModel.SuspendLayout();
             this.toolStrip_MainTools.SuspendLayout();
             this.groupBox_ModelingProperties.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip_Main
@@ -64,7 +66,7 @@
             this.menuStrip_Main.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_Main.Name = "menuStrip_Main";
             this.menuStrip_Main.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip_Main.Size = new System.Drawing.Size(733, 28);
+            this.menuStrip_Main.Size = new System.Drawing.Size(620, 28);
             this.menuStrip_Main.TabIndex = 0;
             this.menuStrip_Main.Text = "Главное меню";
             // 
@@ -108,15 +110,18 @@
             // toolStripMenuItem_Help
             // 
             this.toolStripMenuItem_Help.Name = "toolStripMenuItem_Help";
-            this.toolStripMenuItem_Help.Size = new System.Drawing.Size(175, 24);
+            this.toolStripMenuItem_Help.Size = new System.Drawing.Size(136, 24);
             this.toolStripMenuItem_Help.Text = "Справка";
             // 
             // statusStrip_AllStat
             // 
-            this.statusStrip_AllStat.Location = new System.Drawing.Point(0, 460);
+            this.statusStrip_AllStat.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripProgressBar1});
+            this.statusStrip_AllStat.Location = new System.Drawing.Point(0, 457);
             this.statusStrip_AllStat.Name = "statusStrip_AllStat";
             this.statusStrip_AllStat.Padding = new System.Windows.Forms.Padding(1, 0, 13, 0);
-            this.statusStrip_AllStat.Size = new System.Drawing.Size(733, 22);
+            this.statusStrip_AllStat.Size = new System.Drawing.Size(620, 25);
             this.statusStrip_AllStat.TabIndex = 1;
             this.statusStrip_AllStat.Text = "Статус исполнения";
             // 
@@ -150,7 +155,7 @@
             this.toolStripSeparator1});
             this.toolStrip_MainTools.Location = new System.Drawing.Point(0, 28);
             this.toolStrip_MainTools.Name = "toolStrip_MainTools";
-            this.toolStrip_MainTools.Size = new System.Drawing.Size(733, 25);
+            this.toolStrip_MainTools.Size = new System.Drawing.Size(620, 25);
             this.toolStrip_MainTools.TabIndex = 3;
             this.toolStrip_MainTools.Text = "Инструменты";
             // 
@@ -180,35 +185,62 @@
             // 
             // groupBox_ModelingProperties
             // 
-            this.groupBox_ModelingProperties.Controls.Add(this.listView_Properties);
+            this.groupBox_ModelingProperties.Controls.Add(this.dataGridView1);
             this.groupBox_ModelingProperties.Location = new System.Drawing.Point(365, 57);
             this.groupBox_ModelingProperties.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox_ModelingProperties.Name = "groupBox_ModelingProperties";
             this.groupBox_ModelingProperties.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox_ModelingProperties.Size = new System.Drawing.Size(355, 401);
+            this.groupBox_ModelingProperties.Size = new System.Drawing.Size(255, 401);
             this.groupBox_ModelingProperties.TabIndex = 4;
             this.groupBox_ModelingProperties.TabStop = false;
             this.groupBox_ModelingProperties.Text = "Настройки данного моделирования";
             // 
-            // listView_Properties
+            // toolStripStatusLabel1
             // 
-            this.listView_Properties.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.listView_Properties.Location = new System.Drawing.Point(5, 21);
-            this.listView_Properties.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listView_Properties.Name = "listView_Properties";
-            this.listView_Properties.Size = new System.Drawing.Size(343, 368);
-            this.listView_Properties.TabIndex = 0;
-            this.listView_Properties.UseCompatibleStateImageBehavior = false;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(197, 20);
+            this.toolStripStatusLabel1.Text = "Моделирование не начато";
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 19);
+            // 
+            // Column1_Value
+            // 
+            this.Column1_Value.Frozen = true;
+            this.Column1_Value.HeaderText = "Значение";
+            this.Column1_Value.Name = "Column1_Value";
+            this.Column1_Value.ReadOnly = true;
+            // 
+            // Column_Name
+            // 
+            this.Column_Name.Frozen = true;
+            this.Column_Name.HeaderText = "Имя";
+            this.Column_Name.Name = "Column_Name";
+            this.Column_Name.ReadOnly = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column_Name,
+            this.Column1_Value});
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 20);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(238, 369);
+            this.dataGridView1.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(733, 482);
+            this.ClientSize = new System.Drawing.Size(620, 482);
             this.Controls.Add(this.groupBox_ModelingProperties);
             this.Controls.Add(this.toolStrip_MainTools);
             this.Controls.Add(this.groupBox_RealTimeModel);
@@ -224,10 +256,13 @@
             this.Text = "Моделирование Маршрутного такси";
             this.menuStrip_Main.ResumeLayout(false);
             this.menuStrip_Main.PerformLayout();
+            this.statusStrip_AllStat.ResumeLayout(false);
+            this.statusStrip_AllStat.PerformLayout();
             this.groupBox_RealTimeModel.ResumeLayout(false);
             this.toolStrip_MainTools.ResumeLayout(false);
             this.toolStrip_MainTools.PerformLayout();
             this.groupBox_ModelingProperties.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,11 +285,11 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Service;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Help;
         private System.Windows.Forms.GroupBox groupBox_ModelingProperties;
-        private System.Windows.Forms.ListView listView_Properties;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1_Value;
 
     }
 }
