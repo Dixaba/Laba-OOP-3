@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Meta.Numerics.Statistics.Distributions;
 namespace Лаба_ООП_3
 {
     public partial class MainForm : Form
@@ -42,6 +34,8 @@ namespace Лаба_ООП_3
 
                 ListViewItem Peak2 = Settings.Items.Add("Время второго пика");
                 Peak2.SubItems.Add((aba.Peak2 / 60).ToString() + ":" + (aba.Peak2 % 60).ToString());
+
+
             }
         }
 
@@ -58,12 +52,13 @@ namespace Лаба_ООП_3
 
             for (uint i = 0; i < 1440; i++)
             {
-                LCount = Distrib.Get(AvgCount, 720, 20, i, 10);
-
+                LCount = Distrib.Get(AvgCount, 780, 20, i, 10);
+                //LCount += Distrib.Get(AvgCount, 490, 20, i, 10);
+                //LCount += Distrib.Get(AvgCount, 1050, 25, i, 10);
                 listBox_ModelStations.Items.Add(i + ": " + LCount);
                 Count += LCount;
             }
-            listBox_ModelStations.Items.Add(Count);
+            listBox_ModelStations.Items.Add(Count + "    " + LCount);
         }
     }
 }
