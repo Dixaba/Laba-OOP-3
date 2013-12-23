@@ -363,7 +363,8 @@
             // FormProperties
             // 
             this.AcceptButton = this.button_Accept;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.button_Cancel;
             this.ClientSize = new System.Drawing.Size(327, 302);
             this.Controls.Add(this.groupBox_Properties);
