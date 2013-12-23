@@ -18,7 +18,7 @@ namespace Лаба_ООП_3
             uint res = (uint)Math.Round(PassengerCount * logis.ProbabilityDensity(Minute) * 2.0 * RNG.NextDouble() / StationCount);
 
             logis = null;
-
+            RNG = null;
             return res;
         }
     }

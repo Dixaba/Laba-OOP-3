@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Drawing;
 namespace Лаба_ООП_3
 {
     public partial class MainForm : Form
@@ -10,6 +11,17 @@ namespace Лаба_ООП_3
         }
 
         FormProperties aba = new FormProperties();
+
+
+
+        uint AvgCount = 25000; // Среднее за сутки
+        uint Count = 0; // Кол-во людей на 1-й остановке за сутки
+        uint LCount = 0; // Кол-во людей на 1-й остановке за минуту
+        uint ccc = 0;
+        uint i = 0;
+
+
+
 
         private void toolStripMenuItem_ModelSettings_Click(object sender, EventArgs e)
         {
@@ -24,7 +36,7 @@ namespace Лаба_ООП_3
                 PassengerCount.SubItems.Add(aba.PassengerCount.ToString());
 
                 ListViewItem RideTime = Settings.Items.Add("Время поездки");
-                RideTime.SubItems.Add(aba.RideTime.ToString()+" мин.");
+                RideTime.SubItems.Add(aba.RideTime.ToString() + " мин.");
 
                 ListViewItem Capacity = Settings.Items.Add("Вместимость ТС");
                 Capacity.SubItems.Add(aba.Capacity.ToString());
@@ -46,19 +58,54 @@ namespace Лаба_ООП_3
 
         private void toolStripButton_Start_Click(object sender, EventArgs e)
         {
-            uint AvgCount = 25000; // Среднее за сутки
-            uint Count = 0; // Кол-во людей на 1-й остановке за сутки
-            uint LCount = 0; // Кол-во людей на 1-й остановке за минуту
+            ModelTimer.Enabled = true;
 
-            for (uint i = 0; i < 1440; i++)
+            pictureBox1.Image = null;
+            listBox_ModelStations.Items.Clear();
+
+            i = 0;
+            Count = 0;
+            LCount = 0;
+
+            pictureBox1.Image = new Bitmap(180, 100);
+
+        }
+
+        private void ModelTimer_Tick(object sender, EventArgs e)
+        {
+            if (i == 1440)
             {
-                LCount = Distrib.Get(AvgCount, 780, 20, i, 10);
-                //LCount += Distrib.Get(AvgCount, 490, 20, i, 10);
-                //LCount += Distrib.Get(AvgCount, 1050, 25, i, 10);
-                listBox_ModelStations.Items.Add(i + ": " + LCount);
-                Count += LCount;
+                ModelTimer.Enabled = false;
+                listBox_ModelStations.Items.Add(Count + "    " + LCount);
+                return;
             }
-            listBox_ModelStations.Items.Add(Count + "    " + LCount);
+
+            if (i % 8 == 7)
+            {
+                int h = 99 - (int)(ccc / 15);
+                for (int y = 99; y >= h; y--)
+                 //   (pictureBox1.Image as Bitmap).SetPixel((int)(i / 8), y, Color.DarkGreen);
+                pictureBox1.Invalidate();
+                ccc = 0;
+            }
+
+            LCount = 0;
+
+            for (int k = 0; k < 10; k++)
+            {
+                LCount += Distrib.Get(AvgCount / 3, 720, 190, i, 10);
+                LCount += Distrib.Get(AvgCount / 3, 490, 20, i, 10);
+                LCount += Distrib.Get(AvgCount / 3, 1050, 25, i, 10);
+            }
+            listBox_ModelStations.Items.Add(i + ": " + LCount);
+            Count += LCount;
+
+            ccc += LCount;
+
+            toolStripProgressBar1.Value = (int)i;
+
+            i++;
+
         }
     }
 }
