@@ -15,7 +15,11 @@ namespace Лаба_ООП_3
 
             LogisticDistribution logis = new LogisticDistribution(PeakTime, PeakWidth);
 
-            return (uint)Math.Round(PassengerCount * logis.ProbabilityDensity(Minute) * 2.0 * RNG.NextDouble()/StationCount);
+            uint res = (uint)Math.Round(PassengerCount * logis.ProbabilityDensity(Minute) * 2.0 * RNG.NextDouble() / StationCount);
+
+            logis = null;
+
+            return res;
         }
     }
 }

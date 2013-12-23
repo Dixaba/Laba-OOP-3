@@ -2,6 +2,12 @@
 
 namespace Лаба_ООП_3
 {
+    ////////////////////////////////////////////////
+    //                                            //
+    //  DEPRECATED! Do not use until Apocalypse!  //
+    //                                            //
+    ////////////////////////////////////////////////
+
     static class Poisson
     {
         static double AntiFact(double a, uint x)
