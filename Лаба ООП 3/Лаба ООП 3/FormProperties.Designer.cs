@@ -212,6 +212,11 @@
             // 
             this.numericUpDown_Capacity.Location = new System.Drawing.Point(265, 103);
             this.numericUpDown_Capacity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericUpDown_Capacity.Maximum = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
             this.numericUpDown_Capacity.Minimum = new decimal(new int[] {
             10,
             0,
@@ -221,27 +226,22 @@
             this.numericUpDown_Capacity.Size = new System.Drawing.Size(120, 22);
             this.numericUpDown_Capacity.TabIndex = 3;
             this.numericUpDown_Capacity.Value = new decimal(new int[] {
-            10,
+            13,
             0,
             0,
             0});
             // 
             // numericUpDown_Time
             // 
-            this.numericUpDown_Time.Increment = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
             this.numericUpDown_Time.Location = new System.Drawing.Point(265, 75);
             this.numericUpDown_Time.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDown_Time.Maximum = new decimal(new int[] {
-            30,
+            10,
             0,
             0,
             0});
             this.numericUpDown_Time.Minimum = new decimal(new int[] {
-            10,
+            1,
             0,
             0,
             0});
@@ -249,7 +249,7 @@
             this.numericUpDown_Time.Size = new System.Drawing.Size(120, 22);
             this.numericUpDown_Time.TabIndex = 2;
             this.numericUpDown_Time.Value = new decimal(new int[] {
-            10,
+            5,
             0,
             0,
             0});
@@ -259,7 +259,12 @@
             this.numericUpDown_Passangers.Location = new System.Drawing.Point(265, 47);
             this.numericUpDown_Passangers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDown_Passangers.Maximum = new decimal(new int[] {
-            5000,
+            50000,
+            0,
+            0,
+            0});
+            this.numericUpDown_Passangers.Minimum = new decimal(new int[] {
+            100,
             0,
             0,
             0});
@@ -267,7 +272,7 @@
             this.numericUpDown_Passangers.Size = new System.Drawing.Size(120, 22);
             this.numericUpDown_Passangers.TabIndex = 1;
             this.numericUpDown_Passangers.Value = new decimal(new int[] {
-            1000,
+            10000,
             0,
             0,
             0});
@@ -298,13 +303,28 @@
             // numericUpDown_Hour2
             // 
             this.numericUpDown_Hour2.Location = new System.Drawing.Point(265, 189);
+            this.numericUpDown_Hour2.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
             this.numericUpDown_Hour2.Name = "numericUpDown_Hour2";
             this.numericUpDown_Hour2.Size = new System.Drawing.Size(120, 22);
             this.numericUpDown_Hour2.TabIndex = 14;
+            this.numericUpDown_Hour2.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
             // 
             // numericUpDown_Min2
             // 
             this.numericUpDown_Min2.Location = new System.Drawing.Point(264, 217);
+            this.numericUpDown_Min2.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
             this.numericUpDown_Min2.Name = "numericUpDown_Min2";
             this.numericUpDown_Min2.Size = new System.Drawing.Size(120, 22);
             this.numericUpDown_Min2.TabIndex = 15;
