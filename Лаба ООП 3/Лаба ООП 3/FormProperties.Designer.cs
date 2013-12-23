@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProperties));
             this.button_Accept = new System.Windows.Forms.Button();
             this.button_Cancel = new System.Windows.Forms.Button();
             this.groupBox_Properties = new System.Windows.Forms.GroupBox();
@@ -63,7 +64,7 @@
             // button_Accept
             // 
             this.button_Accept.AutoSize = true;
-            this.button_Accept.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button_Accept.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button_Accept.Location = new System.Drawing.Point(212, 267);
             this.button_Accept.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_Accept.Name = "button_Accept";
@@ -365,16 +366,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.button_Cancel;
             this.ClientSize = new System.Drawing.Size(327, 302);
-            this.ControlBox = false;
             this.Controls.Add(this.groupBox_Properties);
             this.Controls.Add(this.button_Cancel);
             this.Controls.Add(this.button_Accept);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormProperties";
-            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Настройки моделирования";
