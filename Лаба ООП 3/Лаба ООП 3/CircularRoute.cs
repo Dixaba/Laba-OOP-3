@@ -7,7 +7,12 @@ namespace Лаба_ООП_3{
     {
         Queue<Passenger>[] Stations;
 
-        public CircularRoute(UInt32 statcount)
+        public CircularRoute()
+        {
+            
+        }
+
+        public void SetQueues(int statcount)
         {
             StationsCount = statcount;
             Stations = new Queue<Passenger>[StationsCount];
@@ -17,6 +22,6 @@ namespace Лаба_ООП_3{
             }
         }
 
-       public UInt32 StationsCount { get; set; }
+       public int StationsCount { get; set; }
     }
 }
