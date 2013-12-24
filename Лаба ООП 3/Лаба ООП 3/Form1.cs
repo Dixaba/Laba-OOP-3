@@ -17,6 +17,8 @@ namespace Лаба_ООП_3
         uint AvgCount = 25000; // Среднее за сутки
         uint Count = 0; // Кол-во людей на 1-й остановке за сутки
         uint LCount = 0; // Кол-во людей на 1-й остановке за минуту
+        uint TPeak1, TPeak2;
+        double divider;
         uint ccc = 0;
         uint i = 0;
 
@@ -47,7 +49,9 @@ namespace Лаба_ООП_3
                 ListViewItem Peak2 = Settings.Items.Add("Время второго пика");
                 Peak2.SubItems.Add((aba.Peak2 / 60).ToString() + ":" + (aba.Peak2 % 60).ToString());
 
-
+                AvgCount = aba.PassengerCount;
+                TPeak1 = aba.Peak1;
+                TPeak2 = aba.Peak2;
             }
         }
 
@@ -59,6 +63,18 @@ namespace Лаба_ООП_3
         private void toolStripButton_Start_Click(object sender, EventArgs e)
         {
             ModelTimer.Enabled = true;
+
+            uint p1, p2;
+
+            p1 = Distrib.GetAvg(AvgCount / 3, 720, 275, TPeak1, 10) +
+                Distrib.GetAvg(AvgCount / 3, TPeak1, 35, TPeak1, 10) +
+                Distrib.GetAvg(AvgCount / 3, TPeak2, 35, TPeak1, 10);
+
+            p2 = Distrib.GetAvg(AvgCount / 3, 720, 275, TPeak2, 10) +
+                Distrib.GetAvg(AvgCount / 3, TPeak1, 35, TPeak2, 10) +
+                Distrib.GetAvg(AvgCount / 3, TPeak2, 35, TPeak2, 10);
+
+            divider = Math.Max(p1,p2) * 1.3;
 
             pictureBox1.Image = null;
             listBox_ModelStations.Items.Clear();
@@ -82,9 +98,9 @@ namespace Лаба_ООП_3
 
             if (i % 8 == 7)
             {
-                int h = 99 - (int)(ccc / 15);
+                int h = 99 - (int)(ccc / divider);
                 for (int y = 99; y >= h; y--)
-                 //   (pictureBox1.Image as Bitmap).SetPixel((int)(i / 8), y, Color.DarkGreen);
+                    (pictureBox1.Image as Bitmap).SetPixel((int)(i / 8), y, Color.DarkGreen);
                 pictureBox1.Invalidate();
                 ccc = 0;
             }
@@ -93,9 +109,9 @@ namespace Лаба_ООП_3
 
             for (int k = 0; k < 10; k++)
             {
-                LCount += Distrib.Get(AvgCount / 3, 720, 190, i, 10);
-                LCount += Distrib.Get(AvgCount / 3, 490, 20, i, 10);
-                LCount += Distrib.Get(AvgCount / 3, 1050, 25, i, 10);
+                LCount += Distrib.Get(AvgCount / 3, 720, 275, i, 10);
+                LCount += Distrib.Get(AvgCount / 3, TPeak1, 35, i, 10);
+                LCount += Distrib.Get(AvgCount / 3, TPeak2, 35, i, 10);
             }
             listBox_ModelStations.Items.Add(i + ": " + LCount);
             Count += LCount;
