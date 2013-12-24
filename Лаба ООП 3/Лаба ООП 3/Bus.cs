@@ -8,21 +8,53 @@ namespace Лаба_ООП_3
 {
     public class Bus
     {
-        List<Passenger> BusContent;
+        LinkedList<Passenger> BusContent;
+        public Bus()
+        {
+            CurrentStation = 0;
+        }
 
-        public Bus(UInt32 capacity)
+        public void SetBus(int capacity, int time)
         {
             BusCapacity = capacity;
-            BusContent = new List<Passenger>((int)BusCapacity);
+            BusContent = new LinkedList<Passenger>();
+            RidingTime = time;
+        }
+
+        public void Ride(int count)
+        {
+            CurrentStation++;
+            if (CurrentStation > count)
+                CurrentStation = 0;
+        }
+
+        public List<Passenger> ThrowPassengers()
+        {
+            List<Passenger> Throw = new List<Passenger>();
+            LinkedListNode<Passenger> p = BusContent.Last;
+            for (int i = BusContent.Count - 1; i >= 0; i--)
+            {
+                if (CurrentStation == p.Value.ArrivingStation)
+                {
+                    Throw.Add(p.Value);
+                }
+                p = p.Previous;
+            }
+            return Throw;
+        }
+
+        public void SetPassenger(Passenger p)
+        {
+            BusContent.AddLast(p);
         }
 
         #region Свойства
 
-        UInt32 CurrentStation { get; set; }
+        int CurrentStation { get; set; }
 
-        public UInt32 RidingTime { get; set; }
+        public int RidingTime { get; set; }
 
-        public UInt32 BusCapacity { get; set; }
+        public int BusCapacity { get; set; }
 
         #endregion
     }
