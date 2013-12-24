@@ -12,12 +12,12 @@ namespace Лаба_ООП_3
 {
     public partial class FormProperties : Form
     {
-        public uint StationCount { get; set; }
-        public uint PassengerCount { get; set; }
-        public uint RideTime { get; set; }
-        public uint Capacity { get; set; }
-        public uint Peak1 { get; set; }
-        public uint Peak2 { get; set; }
+        public int StationCount { get; set; }
+        public int PassengerCount { get; set; }
+        public int RideTime { get; set; }
+        public int Capacity { get; set; }
+        public int Peak1 { get; set; }
+        public int Peak2 { get; set; }
 
         public FormProperties()
         {
@@ -26,12 +26,12 @@ namespace Лаба_ООП_3
 
         private void button_Accept_Click(object sender, EventArgs e)
         {
-            StationCount = (uint)numericUpDown_Stations.Value;
-            PassengerCount = (uint)numericUpDown_Passangers.Value;
-            RideTime = (uint)numericUpDown_Time.Value;
-            Capacity = (uint)numericUpDown_Capacity.Value;
-            Peak1 = (uint)(numericUpDown_Hour1.Value * 60 + numericUpDown_Min1.Value);
-            Peak2 = (uint)(numericUpDown_Hour2.Value * 60 + numericUpDown_Min2.Value);
+            StationCount = (int)numericUpDown_Stations.Value;
+            PassengerCount = (int)numericUpDown_Passangers.Value;
+            RideTime = (int)numericUpDown_Time.Value;
+            Capacity = (int)numericUpDown_Capacity.Value;
+            Peak1 = (int)(numericUpDown_Hour1.Value * 60 + numericUpDown_Min1.Value);
+            Peak2 = (int)(numericUpDown_Hour2.Value * 60 + numericUpDown_Min2.Value);
         }
     }
 }

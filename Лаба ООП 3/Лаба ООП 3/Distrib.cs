@@ -11,21 +11,38 @@ namespace Лаба_ООП_3
     {
         private static Random RNG = new Random();
 
-        public static uint Get(uint PassengerCount, double PeakTime, double PeakWidth, uint Minute, uint StationCount)
+        private static double IdealSum = 0;
+
+        private static int RealSum = 0;
+
+        public static int Get(int PassengerCount, double PeakTime, double PeakWidth, int Minute, int StationCount)
         {
             LogisticDistribution logis = new LogisticDistribution(PeakTime, PeakWidth);
 
-            uint res = (uint)Math.Round(PassengerCount * logis.ProbabilityDensity(Minute) * 2.0 * RNG.NextDouble() / StationCount);
+            double value = PassengerCount * logis.ProbabilityDensity(Minute) * 2.09 * RNG.NextDouble() / StationCount;
+
+            int res = (int)Math.Round(value);
+
+            IdealSum += value;
+            RealSum += res;
+
+            if (Math.Abs(RealSum - IdealSum) >= 1)
+            {
+                int corr= (int)(Math.Floor(Math.Abs(RealSum - IdealSum)) * Math.Sign(RealSum - IdealSum));
+                IdealSum -= RealSum-corr;
+                RealSum = 0;
+                res -= corr;
+            }
 
             logis = null;
             return res;
         }
 
-        public static uint GetAvg(uint PassengerCount, double PeakTime, double PeakWidth, uint Minute, uint StationCount)
+        public static double GetAvg(int PassengerCount, double PeakTime, double PeakWidth, int Minute, int StationCount)
         {
             LogisticDistribution logis = new LogisticDistribution(PeakTime, PeakWidth);
 
-            uint res = (uint)Math.Round(PassengerCount * logis.ProbabilityDensity(Minute) / StationCount);
+            double res = PassengerCount * logis.ProbabilityDensity(Minute) / StationCount;
 
             logis = null;
             return res;
