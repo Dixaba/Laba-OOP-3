@@ -16,13 +16,13 @@ namespace Лаба_ООП_3
 
         Bus bus = new Bus();
 
-        uint AvgCount = 25000; // Среднее за сутки
-        uint Count = 0; // Кол-во людей на 1-й остановке за сутки
-        uint LCount = 0; // Кол-во людей на 1-й остановке за минуту
-        uint TPeak1, TPeak2;
+        int AvgCount = 25000; // Среднее за сутки
+        int Count = 0; // Кол-во людей на 1-й остановке за сутки
+        int LCount = 0; // Кол-во людей на 1-й остановке за минуту
+        int TPeak1, TPeak2;
         double divider;
-        uint ccc = 0;
-        uint i = 0;
+        int ccc = 0;
+        int i = 0;
 
 
 
@@ -68,9 +68,8 @@ namespace Лаба_ООП_3
 
         private void toolStripButton_Start_Click(object sender, EventArgs e)
         {
-            ModelTimer.Enabled = true;
 
-            uint p1, p2;
+            double p1, p2;
 
             p1 = Distrib.GetAvg(AvgCount / 3, 720, 275, TPeak1, 10) +
                 Distrib.GetAvg(AvgCount / 3, TPeak1, 35, TPeak1, 10) +
@@ -80,7 +79,7 @@ namespace Лаба_ООП_3
                 Distrib.GetAvg(AvgCount / 3, TPeak1, 35, TPeak2, 10) +
                 Distrib.GetAvg(AvgCount / 3, TPeak2, 35, TPeak2, 10);
 
-            divider = Math.Max(p1,p2) * 1.3;
+            divider = Math.Max(p1, p2) * 1.3;
 
             pictureBox1.Image = null;
             listBox_ModelStations.Items.Clear();
@@ -89,8 +88,7 @@ namespace Лаба_ООП_3
             Count = 0;
             LCount = 0;
 
-            pictureBox1.Image = new Bitmap(180, 100);
-
+            ModelTimer.Enabled = true;
         }
 
         private void ModelTimer_Tick(object sender, EventArgs e)
