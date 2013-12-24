@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace Лаба_ООП_3 
+namespace Лаба_ООП_3
 {
     public class Passenger
     {
-        public Passenger(UInt32 intime, UInt32 instat, UInt32 outstat)
+        public Passenger(int intime, int instat, int outstat)
         {
             IncomingTime = intime;
             IncomingStation = instat;
@@ -12,14 +12,14 @@ namespace Лаба_ООП_3
         }
 
         #region Свойства
-        
-        UInt32 IncomingTime { get; set; }
 
-        UInt32 ArrivingTime { get; set; }
+        public int IncomingTime { get; set; }
 
-        UInt32 IncomingStation { get; set; }
+        public int ArrivingTime { get; set; }
 
-        UInt32 ArrivingStation { get; set; }
+        public int IncomingStation { get; set; }
+
+        public int ArrivingStation { get; set; }
 
         #endregion
     }

@@ -12,7 +12,9 @@ namespace Лаба_ООП_3
 
         FormProperties aba = new FormProperties();
 
+        CircularRoute route = new CircularRoute();
 
+        Bus bus = new Bus();
 
         uint AvgCount = 25000; // Среднее за сутки
         uint Count = 0; // Кол-во людей на 1-й остановке за сутки
@@ -52,6 +54,10 @@ namespace Лаба_ООП_3
                 AvgCount = aba.PassengerCount;
                 TPeak1 = aba.Peak1;
                 TPeak2 = aba.Peak2;
+
+                route.SetQueues(aba.StationCount);
+                bus.SetBus(aba.Capacity, aba.RideTime);
+
             }
         }
 
@@ -109,9 +115,9 @@ namespace Лаба_ООП_3
 
             for (int k = 0; k < 10; k++)
             {
-                LCount += Distrib.Get(AvgCount / 3, 720, 275, i, 10);
-                LCount += Distrib.Get(AvgCount / 3, TPeak1, 35, i, 10);
-                LCount += Distrib.Get(AvgCount / 3, TPeak2, 35, i, 10);
+                LCount += Distrib.Get(AvgCount, 900, 150, i, 10);
+                //LCount += Distrib.Get(AvgCount / 3, TPeak1, 35, i, 10);
+                //LCount += Distrib.Get(AvgCount / 3, TPeak2, 35, i, 10);
             }
             listBox_ModelStations.Items.Add(i + ": " + LCount);
             Count += LCount;
