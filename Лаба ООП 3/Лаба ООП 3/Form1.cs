@@ -107,14 +107,20 @@ namespace Лаба_ООП_3
 
         private void ModelTimer_Tick(object sender, EventArgs e)
         {
+            if (i == 0)
+                Statistics.Clear();
             if (i == 1440)
             {
                 ModelTimer.Enabled = false;
                 listBox_ModelStations.Items.Add("Пришло: " + Count + "    Обслуженно: " + Statistics.ServedCount);
-                Statistics.Clear();
+                Statistics.Count = Count;
                 toolStripMenuItem_ModelSettings.Enabled = true;
                 toolStripMenuItem_Stop.Enabled = false;
                 toolStripButton_Stop.Enabled = false;
+                toolStripButton_Start.Enabled = true;
+                toolStripMenuItem_Start.Enabled = true;
+                Statistics.AvgTime(aba.RideTime, route.StationsCount);
+                listBox_ModelStations.Items.Add(Statistics.AvgWaitingTime);
                 return;
             }
 
@@ -146,7 +152,7 @@ namespace Лаба_ООП_3
 
             if (i != 0 && i % bus.RidingTime == 0)
             {
-                Statistics.AddStatistics(bus.ThrowPassengers(i));
+                bus.ThrowPassenger(i);
                 for (int j = 0; j < bus.FreeSeat; j++)
                     bus.SetPassenger(route.DequeuePassenger(bus.CurrentStation));
                 bus.Ride(route.StationsCount);

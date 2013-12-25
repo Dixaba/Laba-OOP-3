@@ -8,7 +8,6 @@ namespace Лаба_ООП_3
 {
     public class Bus
     {
-        List<Passenger> Throw = new List<Passenger>();
         LinkedList<Passenger> BusContent;
         public Bus()
         {
@@ -29,9 +28,8 @@ namespace Лаба_ООП_3
                 CurrentStation = 0;
         }
 
-        public List<Passenger> ThrowPassengers(int time)
+        public void ThrowPassenger(int time)
         {
-            Throw.Clear();
             LinkedListNode<Passenger> p = BusContent.First;
             if (p != null)
                 for (int i = 0; i < BusContent.Count; i++)
@@ -39,7 +37,7 @@ namespace Лаба_ООП_3
                     if (CurrentStation == p.Value.ArrivingStation)
                     {
                         p.Value.ArrivingTime = time;
-                        Throw.Add(p.Value);
+                        Statistics.AddStatistics(p.Value);
                         BusContent.Remove(p);
                         FreeSeat++;
                         p = BusContent.First;
@@ -48,7 +46,7 @@ namespace Лаба_ООП_3
                     }
                     p = p.Next;
                 }
-            return Throw;
+            return;
         }
 
         public void SetPassenger(Passenger p)
