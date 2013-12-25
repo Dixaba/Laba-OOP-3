@@ -56,6 +56,8 @@ namespace Лаба_ООП_3
                 TPeak2 = aba.Peak2;
 
                 route.SetQueues(aba.StationCount);
+                bus.FreeSeat = aba.Capacity;
+                bus.CurrentStation = 0;
                 bus.SetBus(aba.Capacity, aba.RideTime);
 
                 toolStripButton_Start.Enabled = true;
