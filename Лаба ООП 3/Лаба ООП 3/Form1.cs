@@ -58,6 +58,8 @@ namespace Лаба_ООП_3
                 route.SetQueues(aba.StationCount);
                 bus.SetBus(aba.Capacity, aba.RideTime);
 
+                toolStripButton_Start.Enabled = true;
+
             }
         }
 
@@ -71,18 +73,18 @@ namespace Лаба_ООП_3
 
             double p1, p2;
 
-            p1 = Distrib.GetAvg(AvgCount / 3, 780, 175, TPeak1, 10) +
-                Distrib.GetAvg(AvgCount / 3, TPeak1, 35, TPeak1, 10) +
-                Distrib.GetAvg(AvgCount / 3, TPeak2, 35, TPeak1, 10);
+            p1 = Distrib.GetAvg(AvgCount / 3, 780, 175, TPeak1, route.StationsCount) +
+                Distrib.GetAvg(AvgCount / 3, TPeak1, 35, TPeak1, route.StationsCount) +
+                Distrib.GetAvg(AvgCount / 3, TPeak2, 35, TPeak1, route.StationsCount);
 
-            p2 = Distrib.GetAvg(AvgCount / 3, 780, 175, TPeak2, 10) +
-                Distrib.GetAvg(AvgCount / 3, TPeak1, 35, TPeak2, 10) +
-                Distrib.GetAvg(AvgCount / 3, TPeak2, 35, TPeak2, 10);
+            p2 = Distrib.GetAvg(AvgCount / 3, 780, 175, TPeak2, route.StationsCount) +
+                Distrib.GetAvg(AvgCount / 3, TPeak1, 35, TPeak2, route.StationsCount) +
+                Distrib.GetAvg(AvgCount / 3, TPeak2, 35, TPeak2, route.StationsCount);
 
             divider = Math.Max(p1, p2) * 1.3;
 
             pictureBox1.Image = null;
-            listBox_ModelStations.Items.Clear();
+            // listBox_ModelStations.Items.Clear();
 
             pictureBox1.Image = new Bitmap(180, 100);
 
@@ -98,7 +100,8 @@ namespace Лаба_ООП_3
             if (i == 1440)
             {
                 ModelTimer.Enabled = false;
-                listBox_ModelStations.Items.Add(Count + "    " + LCount);
+                listBox_ModelStations.Items.Add("Пришло: " + Count + "    Обслуженно: " + Statistics.ServedCount);
+                Statistics.Clear();
                 return;
             }
 
@@ -106,28 +109,43 @@ namespace Лаба_ООП_3
             {
                 int h = 99 - (int)(ccc / divider);
                 for (int y = 99; y >= h; y--)
-                    (pictureBox1.Image as Bitmap).SetPixel((int)(i / 8), y, Color.DarkGreen);
+                    (pictureBox1.Image as Bitmap).SetPixel((int)(i / 8), y, Color.Green);
                 pictureBox1.Invalidate();
                 ccc = 0;
             }
 
             LCount = 0;
 
-            for (int k = 0; k < 10; k++)
+            for (int k = 0; k < route.StationsCount; k++)
             {
-                LCount += Distrib.Get(AvgCount/3, 780, 175, i, 10);
-                LCount += Distrib.Get(AvgCount / 3, TPeak1, 35, i, 10);
-                LCount += Distrib.Get(AvgCount / 3, TPeak2, 35, i, 10);
+                LCount += Distrib.Get(AvgCount / 3, 780, 175, i, route.StationsCount);
+                LCount += Distrib.Get(AvgCount / 3, TPeak1, 35, i, route.StationsCount);
+                LCount += Distrib.Get(AvgCount / 3, TPeak2, 35, i, route.StationsCount);
             }
-            listBox_ModelStations.Items.Add(i + ": " + LCount);
+            //listBox_ModelStations.Items.Add(i + ": " + LCount);
             Count += LCount;
-
             ccc += LCount;
 
-            toolStripProgressBar1.Value = (int)i;
+            for (int k = 0; k < LCount; k++)
+            {
+                route.SetPassenger(Distrib.SetPassengerToStation(route.StationsCount), i, Distrib.OutStation(route.StationsCount));
+            }
 
-            i++;
+            if (i != 0 && i % bus.RidingTime == 0)
+            {
+                Statistics.AddStatistics(bus.ThrowPassengers(i));
+                for (int j = 0; j < bus.FreeSeat; j++)
+                    bus.SetPassenger(route.DequeuePassenger(bus.CurrentStation));
+                bus.Ride(route.StationsCount);
+            }
 
+            toolStripProgressBar1.Value = i++;
+        }
+
+        private void toolStripButton_Stop_Click(object sender, EventArgs e)
+        {
+            ModelTimer.Enabled = false;
+            listBox_ModelStations.Items.Add(Count + "    " + LCount);
         }
     }
 }

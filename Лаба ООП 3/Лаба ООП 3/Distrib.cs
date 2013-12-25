@@ -15,6 +15,8 @@ namespace Лаба_ООП_3
 
         private static int RealSum = 0;
 
+        private static int rand;
+
         public static int Get(int PassengerCount, double PeakTime, double PeakWidth, int Minute, int StationCount)
         {
             LogisticDistribution logis = new LogisticDistribution(PeakTime, PeakWidth);
@@ -28,8 +30,8 @@ namespace Лаба_ООП_3
 
             if (Math.Abs(RealSum - IdealSum) >= 1)
             {
-                int corr= (int)(Math.Floor(Math.Abs(RealSum - IdealSum)) * Math.Sign(RealSum - IdealSum));
-                IdealSum -= RealSum-corr;
+                int corr = (int)(Math.Floor(Math.Abs(RealSum - IdealSum)) * Math.Sign(RealSum - IdealSum));
+                IdealSum -= RealSum - corr;
                 RealSum = 0;
                 res -= corr;
             }
@@ -46,6 +48,21 @@ namespace Лаба_ООП_3
 
             logis = null;
             return res;
+        }
+
+        public static int SetPassengerToStation(int StationCount)
+        {
+            rand = RNG.Next(0, StationCount);
+            return rand;
+        }
+
+        public static int OutStation(int StationCount)
+        {
+            int r;
+            do
+                r = RNG.Next(0, StationCount);
+            while (rand == r);
+            return r;
         }
     }
 }

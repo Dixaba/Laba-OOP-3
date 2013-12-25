@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Лаба_ООП_3{
-
+namespace Лаба_ООП_3
+{
     public class CircularRoute
     {
         Queue<Passenger>[] Stations;
 
         public CircularRoute()
         {
-            
+
         }
 
         public void SetQueues(int statcount)
@@ -22,6 +22,18 @@ namespace Лаба_ООП_3{
             }
         }
 
-       public int StationsCount { get; set; }
+        public void SetPassenger(int station, int intime, int outstat)
+        {
+            Stations[station].Enqueue(new Passenger(intime, station, outstat));
+        }
+
+        public Passenger DequeuePassenger(int currentstation)
+        {
+            if (Stations[currentstation].Count > 0)
+                return Stations[currentstation].Dequeue();
+            return null;
+        }
+
+        public int StationsCount { get; set; }
     }
 }

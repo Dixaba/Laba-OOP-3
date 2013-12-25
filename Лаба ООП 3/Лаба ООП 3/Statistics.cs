@@ -6,27 +6,40 @@ using System.Threading.Tasks;
 
 namespace Лаба_ООП_3
 {
-    class Statistics
+    public static class Statistics
     {
-        List<Passenger> ServedPassengers;
+        static List<Passenger> ServedPassengers = new List<Passenger>();
 
-        #region
+        public static void AddStatistics(List<Passenger> p)
+        {
+            if (p.Count > 0)
+                ServedPassengers.AddRange(p);
+            ServedCount = ServedPassengers.Count;
+        }
 
-        Double AvgRideLength { get; set; }
+        public static void Clear()
+        {
+            ServedPassengers.Clear();
+            ServedCount = 0;
+        }
 
-        Double AvgWaitingTime { get; set; }
+        #region Свойства
 
-        Double AvgQueueLenghtAtPeak { get; set; }
+        static Double AvgRideLength { get; set; }
 
-        UInt32 MaxQueueLenght { get; set; }
+        static Double AvgWaitingTime { get; set; }
 
-        UInt32 MaxQueueTime { get; set; }
+        static Double AvgQueueLenghtAtPeak { get; set; }
 
-        UInt32 MaxQueueStation { get; set; }
+        static int MaxQueueLenght { get; set; }
 
-        UInt32 Count { get; set; }
+        static int MaxQueueTime { get; set; }
 
-        UInt32 ServedCount { get; set; }
+        static int MaxQueueStation { get; set; }
+
+        static int Count { get; set; }
+
+        public static int ServedCount { get; set; }
 
         #endregion
     }

@@ -8,6 +8,7 @@ namespace Лаба_ООП_3
 {
     public class Bus
     {
+        List<Passenger> Throw = new List<Passenger>();
         LinkedList<Passenger> BusContent;
         public Bus()
         {
@@ -16,7 +17,7 @@ namespace Лаба_ООП_3
 
         public void SetBus(int capacity, int time)
         {
-            BusCapacity = capacity;
+            FreeSeat = BusCapacity = capacity - 1;
             BusContent = new LinkedList<Passenger>();
             RidingTime = time;
         }
@@ -24,33 +25,46 @@ namespace Лаба_ООП_3
         public void Ride(int count)
         {
             CurrentStation++;
-            if (CurrentStation > count)
+            if (CurrentStation >= count)
                 CurrentStation = 0;
         }
 
-        public List<Passenger> ThrowPassengers()
+        public List<Passenger> ThrowPassengers(int time)
         {
-            List<Passenger> Throw = new List<Passenger>();
-            LinkedListNode<Passenger> p = BusContent.Last;
-            for (int i = BusContent.Count - 1; i >= 0; i--)
-            {
-                if (CurrentStation == p.Value.ArrivingStation)
+            Throw.Clear();
+            LinkedListNode<Passenger> p = BusContent.First;
+            if (p != null)
+                for (int i = 0; i < BusContent.Count; i++)
                 {
-                    Throw.Add(p.Value);
+                    if (CurrentStation == p.Value.ArrivingStation)
+                    {
+                        p.Value.ArrivingTime = time;
+                        Throw.Add(p.Value);
+                        BusContent.Remove(p);
+                        FreeSeat++;
+                        p = BusContent.First;
+                        i = -1;
+                        continue;
+                    }
+                    p = p.Next;
                 }
-                p = p.Previous;
-            }
             return Throw;
         }
 
         public void SetPassenger(Passenger p)
         {
-            BusContent.AddLast(p);
+            if (p != null)
+            {
+                BusContent.AddLast(p);
+                FreeSeat--;
+            }
         }
 
         #region Свойства
 
-        int CurrentStation { get; set; }
+        public int FreeSeat { get; set; }
+
+        public int CurrentStation { get; set; }
 
         public int RidingTime { get; set; }
 
