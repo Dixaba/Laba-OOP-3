@@ -73,8 +73,8 @@
             this.toolStripMenuItem_Service});
             this.menuStrip_Main.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_Main.Name = "menuStrip_Main";
-            this.menuStrip_Main.Padding = new System.Windows.Forms.Padding(9, 2, 0, 2);
-            this.menuStrip_Main.Size = new System.Drawing.Size(792, 28);
+            this.menuStrip_Main.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip_Main.Size = new System.Drawing.Size(634, 24);
             this.menuStrip_Main.TabIndex = 0;
             this.menuStrip_Main.Text = "Главное меню";
             // 
@@ -83,13 +83,13 @@
             this.toolStripMenuItem_File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem_ExportStat});
             this.toolStripMenuItem_File.Name = "toolStripMenuItem_File";
-            this.toolStripMenuItem_File.Size = new System.Drawing.Size(57, 24);
+            this.toolStripMenuItem_File.Size = new System.Drawing.Size(48, 20);
             this.toolStripMenuItem_File.Text = "Файл";
             // 
             // toolStripMenuItem_ExportStat
             // 
             this.toolStripMenuItem_ExportStat.Name = "toolStripMenuItem_ExportStat";
-            this.toolStripMenuItem_ExportStat.Size = new System.Drawing.Size(228, 24);
+            this.toolStripMenuItem_ExportStat.Size = new System.Drawing.Size(194, 22);
             this.toolStripMenuItem_ExportStat.Text = "Сохранить статистику";
             // 
             // toolStripMenuItem_Modeling
@@ -100,30 +100,34 @@
             this.toolStripSeparator2,
             this.toolStripMenuItem_ModelSettings});
             this.toolStripMenuItem_Modeling.Name = "toolStripMenuItem_Modeling";
-            this.toolStripMenuItem_Modeling.Size = new System.Drawing.Size(136, 24);
+            this.toolStripMenuItem_Modeling.Size = new System.Drawing.Size(109, 20);
             this.toolStripMenuItem_Modeling.Text = "Моделирование";
             // 
             // toolStripMenuItem_Start
             // 
+            this.toolStripMenuItem_Start.Enabled = false;
             this.toolStripMenuItem_Start.Name = "toolStripMenuItem_Start";
-            this.toolStripMenuItem_Start.Size = new System.Drawing.Size(268, 24);
+            this.toolStripMenuItem_Start.Size = new System.Drawing.Size(223, 22);
             this.toolStripMenuItem_Start.Text = "Начать";
+            this.toolStripMenuItem_Start.Click += new System.EventHandler(this.toolStripButton_Start_Click);
             // 
             // toolStripMenuItem_Stop
             // 
+            this.toolStripMenuItem_Stop.Enabled = false;
             this.toolStripMenuItem_Stop.Name = "toolStripMenuItem_Stop";
-            this.toolStripMenuItem_Stop.Size = new System.Drawing.Size(268, 24);
+            this.toolStripMenuItem_Stop.Size = new System.Drawing.Size(223, 22);
             this.toolStripMenuItem_Stop.Text = "Остановить";
+            this.toolStripMenuItem_Stop.Click += new System.EventHandler(this.toolStripButton_Stop_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(265, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(220, 6);
             // 
             // toolStripMenuItem_ModelSettings
             // 
             this.toolStripMenuItem_ModelSettings.Name = "toolStripMenuItem_ModelSettings";
-            this.toolStripMenuItem_ModelSettings.Size = new System.Drawing.Size(268, 24);
+            this.toolStripMenuItem_ModelSettings.Size = new System.Drawing.Size(223, 22);
             this.toolStripMenuItem_ModelSettings.Text = "Настроить моделирование";
             this.toolStripMenuItem_ModelSettings.Click += new System.EventHandler(this.toolStripMenuItem_ModelSettings_Click);
             // 
@@ -132,13 +136,13 @@
             this.toolStripMenuItem_Service.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem_Help});
             this.toolStripMenuItem_Service.Name = "toolStripMenuItem_Service";
-            this.toolStripMenuItem_Service.Size = new System.Drawing.Size(71, 24);
+            this.toolStripMenuItem_Service.Size = new System.Drawing.Size(59, 20);
             this.toolStripMenuItem_Service.Text = "Сервис";
             // 
             // toolStripMenuItem_Help
             // 
             this.toolStripMenuItem_Help.Name = "toolStripMenuItem_Help";
-            this.toolStripMenuItem_Help.Size = new System.Drawing.Size(136, 24);
+            this.toolStripMenuItem_Help.Size = new System.Drawing.Size(120, 22);
             this.toolStripMenuItem_Help.Text = "Справка";
             // 
             // statusStrip_AllStat
@@ -146,34 +150,34 @@
             this.statusStrip_AllStat.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripProgressBar1});
-            this.statusStrip_AllStat.Location = new System.Drawing.Point(0, 583);
+            this.statusStrip_AllStat.Location = new System.Drawing.Point(0, 465);
             this.statusStrip_AllStat.Name = "statusStrip_AllStat";
-            this.statusStrip_AllStat.Padding = new System.Windows.Forms.Padding(1, 0, 21, 0);
-            this.statusStrip_AllStat.Size = new System.Drawing.Size(792, 35);
+            this.statusStrip_AllStat.Padding = new System.Windows.Forms.Padding(1, 0, 17, 0);
+            this.statusStrip_AllStat.Size = new System.Drawing.Size(634, 29);
             this.statusStrip_AllStat.TabIndex = 1;
             this.statusStrip_AllStat.Text = "Статус исполнения";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(197, 30);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(154, 24);
             this.toolStripStatusLabel1.Text = "Моделирование не начато";
             // 
             // toolStripProgressBar1
             // 
             this.toolStripProgressBar1.Maximum = 1439;
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(166, 29);
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(133, 23);
             this.toolStripProgressBar1.Step = 1;
             // 
             // groupBox_RealTimeModel
             // 
             this.groupBox_RealTimeModel.Controls.Add(this.listBox_ModelStations);
-            this.groupBox_RealTimeModel.Location = new System.Drawing.Point(15, 71);
-            this.groupBox_RealTimeModel.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.groupBox_RealTimeModel.Location = new System.Drawing.Point(12, 57);
+            this.groupBox_RealTimeModel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox_RealTimeModel.Name = "groupBox_RealTimeModel";
-            this.groupBox_RealTimeModel.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.groupBox_RealTimeModel.Size = new System.Drawing.Size(434, 501);
+            this.groupBox_RealTimeModel.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox_RealTimeModel.Size = new System.Drawing.Size(347, 401);
             this.groupBox_RealTimeModel.TabIndex = 2;
             this.groupBox_RealTimeModel.TabStop = false;
             this.groupBox_RealTimeModel.Text = "Модель в реальном времени";
@@ -181,11 +185,10 @@
             // listBox_ModelStations
             // 
             this.listBox_ModelStations.FormattingEnabled = true;
-            this.listBox_ModelStations.ItemHeight = 16;
-            this.listBox_ModelStations.Location = new System.Drawing.Point(6, 21);
-            this.listBox_ModelStations.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.listBox_ModelStations.Location = new System.Drawing.Point(5, 17);
+            this.listBox_ModelStations.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox_ModelStations.Name = "listBox_ModelStations";
-            this.listBox_ModelStations.Size = new System.Drawing.Size(418, 436);
+            this.listBox_ModelStations.Size = new System.Drawing.Size(335, 342);
             this.listBox_ModelStations.TabIndex = 0;
             // 
             // toolStrip_MainTools
@@ -194,9 +197,9 @@
             this.toolStripButton_Start,
             this.toolStripButton_Stop,
             this.toolStripSeparator1});
-            this.toolStrip_MainTools.Location = new System.Drawing.Point(0, 28);
+            this.toolStrip_MainTools.Location = new System.Drawing.Point(0, 24);
             this.toolStrip_MainTools.Name = "toolStrip_MainTools";
-            this.toolStrip_MainTools.Size = new System.Drawing.Size(792, 25);
+            this.toolStrip_MainTools.Size = new System.Drawing.Size(634, 25);
             this.toolStrip_MainTools.TabIndex = 3;
             this.toolStrip_MainTools.Text = "Инструменты";
             // 
@@ -214,6 +217,7 @@
             // toolStripButton_Stop
             // 
             this.toolStripButton_Stop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton_Stop.Enabled = false;
             this.toolStripButton_Stop.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Stop.Image")));
             this.toolStripButton_Stop.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_Stop.Name = "toolStripButton_Stop";
@@ -232,31 +236,30 @@
             this.groupBox_ModelingProperties.Controls.Add(this.radioButton_Slow);
             this.groupBox_ModelingProperties.Controls.Add(this.radioButton_Fast);
             this.groupBox_ModelingProperties.Controls.Add(this.Settings);
-            this.groupBox_ModelingProperties.Location = new System.Drawing.Point(458, 71);
-            this.groupBox_ModelingProperties.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
+            this.groupBox_ModelingProperties.Location = new System.Drawing.Point(366, 57);
+            this.groupBox_ModelingProperties.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.groupBox_ModelingProperties.Name = "groupBox_ModelingProperties";
-            this.groupBox_ModelingProperties.Padding = new System.Windows.Forms.Padding(5, 2, 5, 2);
-            this.groupBox_ModelingProperties.Size = new System.Drawing.Size(322, 501);
+            this.groupBox_ModelingProperties.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.groupBox_ModelingProperties.Size = new System.Drawing.Size(258, 401);
             this.groupBox_ModelingProperties.TabIndex = 4;
             this.groupBox_ModelingProperties.TabStop = false;
             this.groupBox_ModelingProperties.Text = "Настройки данного моделирования";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(9, 321);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(7, 257);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 125);
+            this.pictureBox1.Size = new System.Drawing.Size(180, 100);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
             // radioButton_Slow
             // 
             this.radioButton_Slow.AutoSize = true;
-            this.radioButton_Slow.Location = new System.Drawing.Point(9, 294);
+            this.radioButton_Slow.Location = new System.Drawing.Point(7, 235);
             this.radioButton_Slow.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton_Slow.Name = "radioButton_Slow";
-            this.radioButton_Slow.Size = new System.Drawing.Size(260, 21);
+            this.radioButton_Slow.Size = new System.Drawing.Size(200, 17);
             this.radioButton_Slow.TabIndex = 2;
             this.radioButton_Slow.TabStop = true;
             this.radioButton_Slow.Text = "Моделирование в течении 6 минут";
@@ -265,10 +268,10 @@
             // radioButton_Fast
             // 
             this.radioButton_Fast.AutoSize = true;
-            this.radioButton_Fast.Location = new System.Drawing.Point(9, 268);
+            this.radioButton_Fast.Location = new System.Drawing.Point(7, 214);
             this.radioButton_Fast.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton_Fast.Name = "radioButton_Fast";
-            this.radioButton_Fast.Size = new System.Drawing.Size(194, 21);
+            this.radioButton_Fast.Size = new System.Drawing.Size(152, 17);
             this.radioButton_Fast.TabIndex = 1;
             this.radioButton_Fast.TabStop = true;
             this.radioButton_Fast.Text = "Быстрое моделирование";
@@ -283,10 +286,9 @@
             this.Settings.FullRowSelect = true;
             this.Settings.GridLines = true;
             this.Settings.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.Settings.Location = new System.Drawing.Point(9, 22);
-            this.Settings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Settings.Location = new System.Drawing.Point(7, 18);
             this.Settings.Name = "Settings";
-            this.Settings.Size = new System.Drawing.Size(304, 238);
+            this.Settings.Size = new System.Drawing.Size(244, 191);
             this.Settings.TabIndex = 0;
             this.Settings.UseCompatibleStateImageBehavior = false;
             this.Settings.View = System.Windows.Forms.View.Details;
@@ -308,9 +310,9 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(792, 618);
+            this.ClientSize = new System.Drawing.Size(634, 494);
             this.Controls.Add(this.groupBox_ModelingProperties);
             this.Controls.Add(this.toolStrip_MainTools);
             this.Controls.Add(this.groupBox_RealTimeModel);
@@ -320,7 +322,7 @@
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip_Main;
-            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Моделирование Маршрутного такси";

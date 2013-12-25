@@ -59,6 +59,9 @@ namespace Лаба_ООП_3
                 bus.SetBus(aba.Capacity, aba.RideTime);
 
                 toolStripButton_Start.Enabled = true;
+                toolStripButton_Stop.Enabled = true;
+                toolStripMenuItem_Start.Enabled = true;
+                toolStripMenuItem_Stop.Enabled = true;
 
             }
         }
@@ -73,15 +76,15 @@ namespace Лаба_ООП_3
 
             double p1, p2;
 
-            p1 = Distrib.GetAvg(AvgCount / 3, 780, 175, TPeak1, route.StationsCount) +
-                Distrib.GetAvg(AvgCount / 3, TPeak1, 35, TPeak1, route.StationsCount) +
-                Distrib.GetAvg(AvgCount / 3, TPeak2, 35, TPeak1, route.StationsCount);
+            p1 = Distrib.GetAvg(AvgCount / 3, 780, 175, TPeak1, 1) +
+                Distrib.GetAvg(AvgCount / 3, TPeak1, 35, TPeak1, 1) +
+                Distrib.GetAvg(AvgCount / 3, TPeak2, 35, TPeak1, 1);
 
-            p2 = Distrib.GetAvg(AvgCount / 3, 780, 175, TPeak2, route.StationsCount) +
-                Distrib.GetAvg(AvgCount / 3, TPeak1, 35, TPeak2, route.StationsCount) +
-                Distrib.GetAvg(AvgCount / 3, TPeak2, 35, TPeak2, route.StationsCount);
+            p2 = Distrib.GetAvg(AvgCount / 3, 780, 175, TPeak2, 1) +
+                Distrib.GetAvg(AvgCount / 3, TPeak1, 35, TPeak2, 1) +
+                Distrib.GetAvg(AvgCount / 3, TPeak2, 35, TPeak2, 1);
 
-            divider = Math.Max(p1, p2) * 1.3;
+            divider = Math.Max(p1, p2) * 0.15;
 
             pictureBox1.Image = null;
             // listBox_ModelStations.Items.Clear();
@@ -91,6 +94,7 @@ namespace Лаба_ООП_3
             i = 0;
             Count = 0;
             LCount = 0;
+            ccc = 0;
 
             ModelTimer.Enabled = true;
         }
