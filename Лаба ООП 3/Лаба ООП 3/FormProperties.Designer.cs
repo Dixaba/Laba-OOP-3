@@ -168,7 +168,7 @@
             this.numericUpDown_Hour2.Size = new System.Drawing.Size(88, 20);
             this.numericUpDown_Hour2.TabIndex = 14;
             this.numericUpDown_Hour2.Value = new decimal(new int[] {
-            12,
+            17,
             0,
             0,
             0});
@@ -263,7 +263,7 @@
             this.numericUpDown_Hour1.Size = new System.Drawing.Size(88, 20);
             this.numericUpDown_Hour1.TabIndex = 4;
             this.numericUpDown_Hour1.Value = new decimal(new int[] {
-            12,
+            7,
             0,
             0,
             0});

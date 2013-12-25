@@ -19,7 +19,7 @@ namespace Лаба_ООП_3
         {
             LogisticDistribution logis = new LogisticDistribution(PeakTime, PeakWidth);
 
-            double value = PassengerCount * logis.ProbabilityDensity(Minute) * 2.09 * RNG.NextDouble() / StationCount;
+            double value = PassengerCount * logis.ProbabilityDensity(Minute) * 2.02 * RNG.NextDouble() / StationCount;
 
             int res = (int)Math.Round(value);
 

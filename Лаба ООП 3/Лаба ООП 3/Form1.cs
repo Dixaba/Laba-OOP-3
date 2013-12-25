@@ -71,11 +71,11 @@ namespace Лаба_ООП_3
 
             double p1, p2;
 
-            p1 = Distrib.GetAvg(AvgCount / 3, 720, 275, TPeak1, 10) +
+            p1 = Distrib.GetAvg(AvgCount / 3, 780, 175, TPeak1, 10) +
                 Distrib.GetAvg(AvgCount / 3, TPeak1, 35, TPeak1, 10) +
                 Distrib.GetAvg(AvgCount / 3, TPeak2, 35, TPeak1, 10);
 
-            p2 = Distrib.GetAvg(AvgCount / 3, 720, 275, TPeak2, 10) +
+            p2 = Distrib.GetAvg(AvgCount / 3, 780, 175, TPeak2, 10) +
                 Distrib.GetAvg(AvgCount / 3, TPeak1, 35, TPeak2, 10) +
                 Distrib.GetAvg(AvgCount / 3, TPeak2, 35, TPeak2, 10);
 
@@ -83,6 +83,8 @@ namespace Лаба_ООП_3
 
             pictureBox1.Image = null;
             listBox_ModelStations.Items.Clear();
+
+            pictureBox1.Image = new Bitmap(180, 100);
 
             i = 0;
             Count = 0;
@@ -113,9 +115,9 @@ namespace Лаба_ООП_3
 
             for (int k = 0; k < 10; k++)
             {
-                LCount += Distrib.Get(AvgCount, 900, 150, i, 10);
-                //LCount += Distrib.Get(AvgCount / 3, TPeak1, 35, i, 10);
-                //LCount += Distrib.Get(AvgCount / 3, TPeak2, 35, i, 10);
+                LCount += Distrib.Get(AvgCount/3, 780, 175, i, 10);
+                LCount += Distrib.Get(AvgCount / 3, TPeak1, 35, i, 10);
+                LCount += Distrib.Get(AvgCount / 3, TPeak2, 35, i, 10);
             }
             listBox_ModelStations.Items.Add(i + ": " + LCount);
             Count += LCount;
