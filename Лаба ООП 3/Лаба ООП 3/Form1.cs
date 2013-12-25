@@ -61,9 +61,7 @@ namespace Лаба_ООП_3
                 bus.SetBus(aba.Capacity, aba.RideTime);
 
                 toolStripButton_Start.Enabled = true;
-                toolStripButton_Stop.Enabled = true;
                 toolStripMenuItem_Start.Enabled = true;
-                toolStripMenuItem_Stop.Enabled = true;
 
             }
         }
@@ -75,7 +73,6 @@ namespace Лаба_ООП_3
 
         private void toolStripButton_Start_Click(object sender, EventArgs e)
         {
-
             double p1, p2;
 
             p1 = Distrib.GetAvg(AvgCount / 3, 780, 175, TPeak1, 1) +
@@ -98,6 +95,13 @@ namespace Лаба_ООП_3
             LCount = 0;
             ccc = 0;
 
+            toolStripMenuItem_Stop.Enabled = true;
+            toolStripButton_Stop.Enabled = true;
+            toolStripButton_Start.Enabled = false;
+            toolStripMenuItem_Start.Enabled = false;
+
+            toolStripMenuItem_ModelSettings.Enabled = false;
+
             ModelTimer.Enabled = true;
         }
 
@@ -108,6 +112,7 @@ namespace Лаба_ООП_3
                 ModelTimer.Enabled = false;
                 listBox_ModelStations.Items.Add("Пришло: " + Count + "    Обслуженно: " + Statistics.ServedCount);
                 Statistics.Clear();
+                toolStripMenuItem_ModelSettings.Enabled = true;
                 return;
             }
 
@@ -152,6 +157,14 @@ namespace Лаба_ООП_3
         {
             ModelTimer.Enabled = false;
             listBox_ModelStations.Items.Add(Count + "    " + LCount);
+
+            toolStripMenuItem_Start.Enabled = true;
+            toolStripButton_Start.Enabled = true;
+
+            toolStripButton_Stop.Enabled = false;
+            toolStripMenuItem_Stop.Enabled = false;
+
+            toolStripMenuItem_ModelSettings.Enabled = true;
         }
     }
 }
