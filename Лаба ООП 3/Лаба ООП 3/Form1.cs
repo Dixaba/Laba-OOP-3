@@ -113,6 +113,8 @@ namespace Лаба_ООП_3
                 listBox_ModelStations.Items.Add("Пришло: " + Count + "    Обслуженно: " + Statistics.ServedCount);
                 Statistics.Clear();
                 toolStripMenuItem_ModelSettings.Enabled = true;
+                toolStripMenuItem_Stop.Enabled = false;
+                toolStripButton_Stop.Enabled = false;
                 return;
             }
 
