@@ -33,11 +33,12 @@ namespace Лаба_ООП_3
             int avgtime = 0;
             for (int i = 0; i <= ServedPassengers.Count - 1; i++)
             {
-                if (p.Value.ArrivingStation - p.Value.IncomingStation > 0)
-                    avgtime += p.Value.ArrivingTime - (p.Value.ArrivingStation - p.Value.IncomingStation) * time - p.Value.IncomingTime;
-                else
-                    avgtime += p.Value.ArrivingTime - (p.Value.ArrivingStation - p.Value.IncomingStation + stations) * time -
-                        p.Value.IncomingTime;
+                int ridelength = p.Value.ArrivingStation - p.Value.IncomingStation;
+                if (ridelength < 1)
+                    ridelength += stations;
+                avgtime += p.Value.ArrivingTime - ridelength * time - p.Value.IncomingTime;
+
+                p = p.Next;
             }
             AvgWaitingTime = avgtime / (double)ServedCount;
         }
