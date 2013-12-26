@@ -13,7 +13,7 @@ namespace Лаба_ООП_3
         public static void AddStatistics(Passenger p)
         {
             ServedPassengers.AddLast(p);
-            ServedCount++; ;
+            ServedCount = ServedPassengers.Count;
         }
 
         public static void Clear()
@@ -30,7 +30,7 @@ namespace Лаба_ООП_3
         public static void AvgTime(int time, int stations)
         {
             LinkedListNode<Passenger> p = ServedPassengers.First;
-            int avgtime = 0;
+            double avgtime = 0;
             for (int i = 0; i <= ServedPassengers.Count - 1; i++)
             {
                 int ridelength = p.Value.ArrivingStation - p.Value.IncomingStation;
