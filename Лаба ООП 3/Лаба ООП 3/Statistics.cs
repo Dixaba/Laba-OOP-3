@@ -45,11 +45,11 @@ namespace Лаба_ООП_3
 
         #region Свойства
 
-        static Double AvgRideLength { get; set; }
+        static double AvgRideLength { get; set; }
 
-        public static Double AvgWaitingTime { get; set; }
+        public static double AvgWaitingTime { get; set; }
 
-        static Double AvgQueueLenghtAtPeak { get; set; }
+        static double AvgQueueLenghtAtPeak { get; set; }
 
         static int MaxQueueLenght { get; set; }
 
