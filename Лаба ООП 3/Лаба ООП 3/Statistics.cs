@@ -22,11 +22,6 @@ namespace Лаба_ООП_3
             ServedCount = 0;
         }
 
-        private static double ServedPass()
-        {
-            return (double)ServedCount / (double)Count;
-        }
-
         public static void AvgTime(int time, int stations)
         {
             LinkedListNode<Passenger> p = ServedPassengers.First;
