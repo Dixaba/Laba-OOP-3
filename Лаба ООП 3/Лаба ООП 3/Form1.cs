@@ -120,6 +120,7 @@ namespace Лаба_ООП_3
             toolStripButton_pause.Enabled = true;
 
             toolStripMenuItem_ModelSettings.Enabled = false;
+            toolStripMenuItem_ExportStat.Enabled = false;
 
             route.Reset();
             bus.Reset();
@@ -146,6 +147,11 @@ namespace Лаба_ООП_3
                 toolStripButton_Stop.Enabled = false;
                 toolStripButton_Start.Enabled = true;
                 toolStripMenuItem_Start.Enabled = true;
+
+                toolStripButton_pause.Enabled = false;
+                ModelTimer.Tag = 0;
+                toolStripButton_pause.Image = imageList1.Images[0];
+
                 return;
             }
 
@@ -223,6 +229,8 @@ namespace Лаба_ООП_3
             toolStripButton_Stop.Enabled = false;
             toolStripMenuItem_Stop.Enabled = false;
             toolStripButton_pause.Enabled = false;
+            ModelTimer.Tag = 0;
+            toolStripButton_pause.Image = imageList1.Images[0];
 
             toolStripMenuItem_ModelSettings.Enabled = true;
         }
