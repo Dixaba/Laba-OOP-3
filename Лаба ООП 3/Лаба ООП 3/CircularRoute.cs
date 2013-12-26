@@ -27,7 +27,7 @@ namespace Лаба_ООП_3
         }
 
         // Добавляет пассажира на одну из остоновок
-        public void SetPassenger(int intime, int station, int outstat)
+        public void SetPassenger(int station, int intime, int outstat)
         {
             Stations[station].Enqueue(new Passenger(intime, station, outstat));
         }

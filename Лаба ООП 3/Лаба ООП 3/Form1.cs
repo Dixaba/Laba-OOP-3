@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
+using System.Windows.Forms;
 namespace Лаба_ООП_3
 {
     public partial class MainForm : Form
@@ -18,15 +18,16 @@ namespace Лаба_ООП_3
 
         Bus bus = new Bus();
 
-        int AvgCount = 25000; // Среднее за сутки
+        int AvgCount = 0; // Среднее за сутки
         int Count = 0; // Кол-во людей на 1-й остановке за сутки
         int LCount = 0; // Кол-во людей на 1-й остановке за минуту
-        int TPeak1, TPeak2;
-        double divider;
-        int ccc = 0;
+        int TPeak1, TPeak2; // Время первого и второго пиков
+        double divider; // Надобно
+        int ccc = 0; // Сумма пассажиров за 8 минут
         int i = 0;
-        decimal Cost;
+        decimal Cost; // Выручка
 
+        // Вывод статистики
         private void PrintStatistics()
         {
             Statistics.AvgTime(aba.RideTime, route.StationsCount);
@@ -41,6 +42,7 @@ namespace Лаба_ООП_3
             toolStripMenuItem_ExportStat.Enabled = true;
         }
 
+        // Работа с настройками моделирования
         private void toolStripMenuItem_ModelSettings_Click(object sender, EventArgs e)
         {
             if (aba.ShowDialog() == DialogResult.OK)
@@ -84,10 +86,6 @@ namespace Лаба_ООП_3
             }
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
 
         private void toolStripButton_Start_Click(object sender, EventArgs e)
         {
@@ -104,7 +102,6 @@ namespace Лаба_ООП_3
             divider = Math.Max(p1, p2) * 0.15;
 
             pictureBox1.Image = null;
-            // listBox_ModelStations.Items.Clear();
 
             pictureBox1.Image = new Bitmap(180, 100);
 
@@ -172,7 +169,6 @@ namespace Лаба_ООП_3
                 LCount += Distrib.Get(AvgCount / 3, TPeak1, 35, i, route.StationsCount);
                 LCount += Distrib.Get(AvgCount / 3, TPeak2, 35, i, route.StationsCount);
             }
-            //listBox_ModelStations.Items.Add(i + ": " + LCount);
             Count += LCount;
             ccc += LCount;
 
@@ -215,6 +211,7 @@ namespace Лаба_ООП_3
             toolStripProgressBar1.Value = i++;
         }
 
+        // Стоп
         private void toolStripButton_Stop_Click(object sender, EventArgs e)
         {
             ModelTimer.Enabled = false;
@@ -235,6 +232,7 @@ namespace Лаба_ООП_3
             toolStripMenuItem_ModelSettings.Enabled = true;
         }
 
+        // Изменение скорости моделирования
         private void radioButton_Fast_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton_Fast.Checked)
@@ -245,6 +243,7 @@ namespace Лаба_ООП_3
                 ModelTimer.Interval = 250;
         }
 
+        // Вывод в файл
         private void toolStripMenuItem_ExportStat_Click(object sender, EventArgs e)
         {
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -272,11 +271,12 @@ namespace Лаба_ООП_3
             }
         }
 
+        // Пауза
         private void toolStripButton_pause_Click(object sender, EventArgs e)
         {
-                ModelTimer.Enabled =!ModelTimer.Enabled;
-                toolStripButton_pause.Image = imageList1.Images[1-(int)ModelTimer.Tag];
-                ModelTimer.Tag = 1 - (int)ModelTimer.Tag;
+            ModelTimer.Enabled = !ModelTimer.Enabled;
+            toolStripButton_pause.Image = imageList1.Images[1 - (int)ModelTimer.Tag];
+            ModelTimer.Tag = 1 - (int)ModelTimer.Tag;
         }
     }
 }

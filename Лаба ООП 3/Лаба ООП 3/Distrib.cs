@@ -1,22 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Meta.Numerics.Statistics.Distributions;
 
 namespace Лаба_ООП_3
 {
     static class Distrib
     {
+        // Объект класса Random
         private static Random RNG = new Random();
 
+        // Сумма без округления
         private static double IdealSum = 0;
 
+        // Сумма после округления
         private static int RealSum = 0;
 
-        private static int rand;
+        // Вспомогательная переменная
+        private static int rand = 0;
 
+        #region Методы
+
+        // Округленное количество людей для одной остановки с рандомом
         public static int Get(int PassengerCount, double PeakTime, double PeakWidth, int Minute, int StationCount)
         {
             LogisticDistribution logis = new LogisticDistribution(PeakTime, PeakWidth);
@@ -40,6 +43,7 @@ namespace Лаба_ООП_3
             return res;
         }
 
+        // Идеальное количество людей для остановки без округления
         public static double GetAvg(int PassengerCount, double PeakTime, double PeakWidth, int Minute, int StationCount)
         {
             LogisticDistribution logis = new LogisticDistribution(PeakTime, PeakWidth);
@@ -50,12 +54,14 @@ namespace Лаба_ООП_3
             return res;
         }
 
+        // Устанвливает пассажиру станцию прихода
         public static int SetPassengerToStation(int StationCount)
         {
             rand = RNG.Next(0, StationCount);
             return rand;
         }
 
+        // Устанавливает пассажиру станцию выхода
         public static int OutStation(int StationCount)
         {
             int r;
@@ -64,5 +70,7 @@ namespace Лаба_ООП_3
             while (rand == r);
             return r;
         }
+
+        #endregion
     }
 }
