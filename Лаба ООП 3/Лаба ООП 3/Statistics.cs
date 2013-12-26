@@ -43,19 +43,34 @@ namespace Лаба_ООП_3
             AvgWaitingTime = avgtime / (double)ServedCount;
         }
 
+        public static void Reset()
+        {
+            AvgQueueLenghtAtPeak = 0;
+            AvgRideLength = 0;
+            AvgWaitingTime = 0;
+            MaxQueueLenght = 0;
+            MaxQueueStation = 0;
+            MaxQueueTime = 0;
+        }
+
+        public static decimal Cost(decimal cost)
+        {
+            return cost * ServedCount;
+        }
+
         #region Свойства
 
-        static double AvgRideLength { get; set; }
+        public static double AvgRideLength { get; set; }
 
         public static double AvgWaitingTime { get; set; }
 
-        static double AvgQueueLenghtAtPeak { get; set; }
+        public static double AvgQueueLenghtAtPeak { get; set; }
 
-        static int MaxQueueLenght { get; set; }
+        public static int MaxQueueLenght { get; set; }
 
-        static int MaxQueueTime { get; set; }
+        public static int MaxQueueTime { get; set; }
 
-        static int MaxQueueStation { get; set; }
+        public static int MaxQueueStation { get; set; }
 
         public static int Count { get; set; }
 

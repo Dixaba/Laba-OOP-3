@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Drawing;
+using System.IO;
 namespace Лаба_ООП_3
 {
     public partial class MainForm : Form
@@ -23,9 +24,22 @@ namespace Лаба_ООП_3
         double divider;
         int ccc = 0;
         int i = 0;
+        decimal Cost;
+        bool ispaused = false;
 
-
-
+        private void PrintStatistics()
+        {
+            Statistics.AvgTime(aba.RideTime, route.StationsCount);
+            listBox_ModelStations.Items.Add("");
+            listBox_ModelStations.Items.Add("Статистика:");
+            listBox_ModelStations.Items.Add("Пришло: " + Count + "    Обслуженно: " + Statistics.ServedCount);
+            listBox_ModelStations.Items.Add("Самая длинная очередь: " + Statistics.MaxQueueLenght);
+            listBox_ModelStations.Items.Add("Остановка с самой длинной очередью: " + Statistics.MaxQueueStation);
+            listBox_ModelStations.Items.Add("Когда образовалась самая длинная очередь: " + ((Statistics.MaxQueueTime / 60).ToString() + " : " + (Statistics.MaxQueueTime % 60).ToString()));
+            listBox_ModelStations.Items.Add("Среднее время ожидания ТС пассажиром: " + Math.Floor(Statistics.AvgWaitingTime) + " минут");
+            listBox_ModelStations.Items.Add("Вырученная сумма:" + Statistics.Cost(Cost) + " руб.");
+            toolStripMenuItem_ExportStat.Enabled = true;
+        }
 
         private void toolStripMenuItem_ModelSettings_Click(object sender, EventArgs e)
         {
@@ -51,9 +65,13 @@ namespace Лаба_ООП_3
                 ListViewItem Peak2 = Settings.Items.Add("Время второго пика");
                 Peak2.SubItems.Add((aba.Peak2 / 60).ToString() + ":" + (aba.Peak2 % 60).ToString());
 
+                ListViewItem SCost = Settings.Items.Add("Стоимость проезда");
+                SCost.SubItems.Add(aba.Cost.ToString() + " руб.");
+
                 AvgCount = aba.PassengerCount;
                 TPeak1 = aba.Peak1;
                 TPeak2 = aba.Peak2;
+                Cost = aba.Cost;
 
                 route.SetQueues(aba.StationCount);
                 bus.FreeSeat = aba.Capacity;
@@ -73,7 +91,7 @@ namespace Лаба_ООП_3
 
         private void toolStripButton_Start_Click(object sender, EventArgs e)
         {
-                        double p1, p2;
+            double p1, p2;
 
             p1 = Distrib.GetAvg(AvgCount / 3, 780, 175, TPeak1, 1) +
                 Distrib.GetAvg(AvgCount / 3, TPeak1, 35, TPeak1, 1) +
@@ -111,19 +129,22 @@ namespace Лаба_ООП_3
         private void ModelTimer_Tick(object sender, EventArgs e)
         {
             if (i == 0)
+            {
                 Statistics.Clear();
+                Statistics.Reset();
+            }
+
             if (i == 1440)
             {
                 ModelTimer.Enabled = false;
-                listBox_ModelStations.Items.Add("Пришло: " + Count + "    Обслуженно: " + Statistics.ServedCount);
                 Statistics.Count = Count;
+                PrintStatistics();
+
                 toolStripMenuItem_ModelSettings.Enabled = true;
                 toolStripMenuItem_Stop.Enabled = false;
                 toolStripButton_Stop.Enabled = false;
                 toolStripButton_Start.Enabled = true;
                 toolStripMenuItem_Start.Enabled = true;
-                Statistics.AvgTime(aba.RideTime, route.StationsCount);
-                listBox_ModelStations.Items.Add(Statistics.AvgWaitingTime);
                 return;
             }
 
@@ -153,6 +174,16 @@ namespace Лаба_ООП_3
                 route.SetPassenger(Distrib.SetPassengerToStation(route.StationsCount), i, Distrib.OutStation(route.StationsCount));
             }
 
+            for (int k = 0; k < route.StationsCount; k++)
+            {
+                if (route.QueueSize(k) > Statistics.MaxQueueLenght)
+                {
+                    Statistics.MaxQueueLenght = route.QueueSize(k);
+                    Statistics.MaxQueueStation = k;
+                    Statistics.MaxQueueTime = i;
+                }
+            }
+
             if (i != 0 && i % bus.RidingTime == 0)
             {
                 bus.ThrowPassenger(i);
@@ -166,7 +197,7 @@ namespace Лаба_ООП_3
 
             for (int k = 0; k < route.StationsCount; k++)
             {
-                listBox_ModelStations.Items.Add(k + "\t" + route.QueueSize(k));
+                listBox_ModelStations.Items.Add("Остановка №: " + (k + 1) + "\t" + route.QueueSize(k) + " человек на остановке");
             }
 
             toolStripStatusLabel2.Text = ((i / 60).ToString() + ":" + (i % 60).ToString());
@@ -180,7 +211,10 @@ namespace Лаба_ООП_3
         private void toolStripButton_Stop_Click(object sender, EventArgs e)
         {
             ModelTimer.Enabled = false;
-            listBox_ModelStations.Items.Add("Пришло: " + Count + "    Обслуженно: " + Statistics.ServedCount);
+
+            Statistics.Count = Count;
+            PrintStatistics();
+            Statistics.Reset();
 
             toolStripMenuItem_Start.Enabled = true;
             toolStripButton_Start.Enabled = true;
@@ -199,6 +233,49 @@ namespace Лаба_ООП_3
             }
             else
                 ModelTimer.Interval = 250;
+        }
+
+        private void toolStripMenuItem_ExportStat_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter sw = new StreamWriter(saveFileDialog1.FileName))
+                {
+                    sw.WriteLine("Количество остановок: " + aba.StationCount.ToString());
+                    sw.WriteLine("Количество пассажиров: " + aba.PassengerCount.ToString());
+                    sw.WriteLine("Время поездки: " + aba.RideTime.ToString() + " мин.");
+                    sw.WriteLine("Вместимость ТС: " + aba.Capacity.ToString());
+                    sw.WriteLine("Премя первого пика: " + (aba.Peak1 / 60).ToString() + ":" + (aba.Peak1 % 60).ToString());
+                    sw.WriteLine("Время второго пика: " + (aba.Peak2 / 60).ToString() + ":" + (aba.Peak2 % 60).ToString());
+                    sw.WriteLine("Стоимость проезда: " + aba.Cost.ToString() + " руб.");
+                    sw.WriteLine("");
+                    sw.WriteLine("Статистика:");
+                    sw.WriteLine("Пришло: " + Count + "    Обслуженно: " + Statistics.ServedCount);
+                    sw.WriteLine("Самая длинная очередь: " + Statistics.MaxQueueLenght);
+                    sw.WriteLine("Остановка с самой длинной очередью: " + (Statistics.MaxQueueStation + 1));
+                    sw.WriteLine("Когда образовалась самая длинная очередь: " + ((Statistics.MaxQueueTime / 60).ToString() + " : " + (Statistics.MaxQueueTime % 60).ToString()));
+                    sw.WriteLine("Среднее время ожидания ТС пассажиром: " + Math.Floor(Statistics.AvgWaitingTime) + " минут");
+                    sw.WriteLine("Вырученная сумма:" + Statistics.Cost(Cost) + " руб.");
+                    sw.Flush();
+                    sw.Close();
+                }
+            }
+        }
+
+        private void toolStripButton_pause_Click(object sender, EventArgs e)
+        {
+            if (ispaused)
+            {
+                ModelTimer.Enabled = true;
+                ispaused = false;
+            }
+
+            else
+            {
+                ModelTimer.Enabled = false;
+                ispaused = true;
+            }
+
         }
     }
 }

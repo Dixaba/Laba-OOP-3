@@ -32,6 +32,8 @@
             this.button_Accept = new System.Windows.Forms.Button();
             this.button_Cancel = new System.Windows.Forms.Button();
             this.groupBox_Properties = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.numericUpDown_Cost = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -50,9 +52,8 @@
             this.numericUpDown_Time = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_Passangers = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_Stations = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label11 = new System.Windows.Forms.Label();
             this.groupBox_Properties.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Cost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Min2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Hour2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Min1)).BeginInit();
@@ -61,7 +62,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Time)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Passangers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Stations)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // button_Accept
@@ -92,7 +92,7 @@
             // groupBox_Properties
             // 
             this.groupBox_Properties.Controls.Add(this.label11);
-            this.groupBox_Properties.Controls.Add(this.numericUpDown1);
+            this.groupBox_Properties.Controls.Add(this.numericUpDown_Cost);
             this.groupBox_Properties.Controls.Add(this.label10);
             this.groupBox_Properties.Controls.Add(this.label9);
             this.groupBox_Properties.Controls.Add(this.label8);
@@ -119,6 +119,38 @@
             this.groupBox_Properties.TabIndex = 2;
             this.groupBox_Properties.TabStop = false;
             this.groupBox_Properties.Text = "Настройки";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(117, 129);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(137, 17);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "Стоимость проезда";
+            // 
+            // numericUpDown_Cost
+            // 
+            this.numericUpDown_Cost.DecimalPlaces = 2;
+            this.numericUpDown_Cost.Location = new System.Drawing.Point(262, 127);
+            this.numericUpDown_Cost.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.numericUpDown_Cost.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numericUpDown_Cost.Name = "numericUpDown_Cost";
+            this.numericUpDown_Cost.Size = new System.Drawing.Size(109, 22);
+            this.numericUpDown_Cost.TabIndex = 19;
+            this.numericUpDown_Cost.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
             // 
             // label10
             // 
@@ -342,7 +374,7 @@
             this.numericUpDown_Passangers.Size = new System.Drawing.Size(110, 22);
             this.numericUpDown_Passangers.TabIndex = 1;
             this.numericUpDown_Passangers.Value = new decimal(new int[] {
-            10000,
+            500,
             0,
             0,
             0});
@@ -370,38 +402,6 @@
             0,
             0});
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Location = new System.Drawing.Point(262, 127);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(109, 22);
-            this.numericUpDown1.TabIndex = 19;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(117, 129);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(137, 17);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "Стоимость проезда";
-            // 
             // FormProperties
             // 
             this.AcceptButton = this.button_Accept;
@@ -425,6 +425,7 @@
             this.TopMost = true;
             this.groupBox_Properties.ResumeLayout(false);
             this.groupBox_Properties.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Cost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Min2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Hour2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Min1)).EndInit();
@@ -433,7 +434,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Time)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Passangers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Stations)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -463,6 +463,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDown_Min2;
         private System.Windows.Forms.NumericUpDown numericUpDown_Hour2;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDown_Cost;
     }
 }

@@ -38,10 +38,10 @@
             this.toolStripMenuItem_Stop = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem_ModelSettings = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem_Service = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip_AllStat = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox_RealTimeModel = new System.Windows.Forms.GroupBox();
             this.listBox_ModelStations = new System.Windows.Forms.ListBox();
             this.toolStrip_MainTools = new System.Windows.Forms.ToolStrip();
@@ -56,8 +56,8 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ModelTimer = new System.Windows.Forms.Timer(this.components);
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.toolStripButton_pause = new System.Windows.Forms.ToolStripButton();
             this.menuStrip_Main.SuspendLayout();
             this.statusStrip_AllStat.SuspendLayout();
             this.groupBox_RealTimeModel.SuspendLayout();
@@ -70,8 +70,7 @@
             // 
             this.menuStrip_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem_File,
-            this.toolStripMenuItem_Modeling,
-            this.toolStripMenuItem_Service});
+            this.toolStripMenuItem_Modeling});
             this.menuStrip_Main.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_Main.Name = "menuStrip_Main";
             this.menuStrip_Main.Padding = new System.Windows.Forms.Padding(9, 2, 0, 2);
@@ -89,9 +88,11 @@
             // 
             // toolStripMenuItem_ExportStat
             // 
+            this.toolStripMenuItem_ExportStat.Enabled = false;
             this.toolStripMenuItem_ExportStat.Name = "toolStripMenuItem_ExportStat";
             this.toolStripMenuItem_ExportStat.Size = new System.Drawing.Size(228, 24);
             this.toolStripMenuItem_ExportStat.Text = "Сохранить статистику";
+            this.toolStripMenuItem_ExportStat.Click += new System.EventHandler(this.toolStripMenuItem_ExportStat_Click);
             // 
             // toolStripMenuItem_Modeling
             // 
@@ -132,20 +133,6 @@
             this.toolStripMenuItem_ModelSettings.Text = "Настроить моделирование";
             this.toolStripMenuItem_ModelSettings.Click += new System.EventHandler(this.toolStripMenuItem_ModelSettings_Click);
             // 
-            // toolStripMenuItem_Service
-            // 
-            this.toolStripMenuItem_Service.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem_Help});
-            this.toolStripMenuItem_Service.Name = "toolStripMenuItem_Service";
-            this.toolStripMenuItem_Service.Size = new System.Drawing.Size(71, 24);
-            this.toolStripMenuItem_Service.Text = "Сервис";
-            // 
-            // toolStripMenuItem_Help
-            // 
-            this.toolStripMenuItem_Help.Name = "toolStripMenuItem_Help";
-            this.toolStripMenuItem_Help.Size = new System.Drawing.Size(136, 24);
-            this.toolStripMenuItem_Help.Text = "Справка";
-            // 
             // statusStrip_AllStat
             // 
             this.statusStrip_AllStat.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -165,6 +152,16 @@
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(166, 29);
             this.toolStripProgressBar1.Step = 1;
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(0, 30);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 30);
             // 
             // groupBox_RealTimeModel
             // 
@@ -193,7 +190,8 @@
             this.toolStrip_MainTools.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton_Start,
             this.toolStripButton_Stop,
-            this.toolStripSeparator1});
+            this.toolStripSeparator1,
+            this.toolStripButton_pause});
             this.toolStrip_MainTools.Location = new System.Drawing.Point(0, 28);
             this.toolStrip_MainTools.Name = "toolStrip_MainTools";
             this.toolStrip_MainTools.Size = new System.Drawing.Size(792, 25);
@@ -245,7 +243,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(9, 321);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(225, 125);
             this.pictureBox1.TabIndex = 3;
@@ -287,7 +285,7 @@
             this.Settings.GridLines = true;
             this.Settings.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.Settings.Location = new System.Drawing.Point(9, 22);
-            this.Settings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Settings.Margin = new System.Windows.Forms.Padding(4);
             this.Settings.Name = "Settings";
             this.Settings.Size = new System.Drawing.Size(304, 238);
             this.Settings.TabIndex = 0;
@@ -309,15 +307,20 @@
             this.ModelTimer.Interval = 1;
             this.ModelTimer.Tick += new System.EventHandler(this.ModelTimer_Tick);
             // 
-            // toolStripStatusLabel2
+            // saveFileDialog1
             // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(0, 30);
+            this.saveFileDialog1.FileName = "Stats";
+            this.saveFileDialog1.Filter = "Text files|*.txt";
             // 
-            // toolStripStatusLabel1
+            // toolStripButton_pause
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 30);
+            this.toolStripButton_pause.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton_pause.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_pause.Image")));
+            this.toolStripButton_pause.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_pause.Name = "toolStripButton_pause";
+            this.toolStripButton_pause.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton_pause.Text = "Пауза";
+            this.toolStripButton_pause.Click += new System.EventHandler(this.toolStripButton_pause_Click);
             // 
             // MainForm
             // 
@@ -366,8 +369,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_ExportStat;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_ModelSettings;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Service;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Help;
         private System.Windows.Forms.GroupBox groupBox_ModelingProperties;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
         private System.Windows.Forms.Timer ModelTimer;
@@ -382,6 +383,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolStripButton toolStripButton_pause;
 
     }
 }

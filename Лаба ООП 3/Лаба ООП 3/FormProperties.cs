@@ -18,6 +18,7 @@ namespace Лаба_ООП_3
         public int Capacity { get; set; }
         public int Peak1 { get; set; }
         public int Peak2 { get; set; }
+        public decimal Cost { get; set; }
 
         public FormProperties()
         {
@@ -32,6 +33,7 @@ namespace Лаба_ООП_3
             Capacity = (int)numericUpDown_Capacity.Value;
             Peak1 = (int)(numericUpDown_Hour1.Value * 60 + numericUpDown_Min1.Value);
             Peak2 = (int)(numericUpDown_Hour2.Value * 60 + numericUpDown_Min2.Value);
+            Cost = numericUpDown_Cost.Value;
         }
     }
 }
