@@ -9,6 +9,7 @@ namespace Лаба_ООП_3
         public MainForm()
         {
             InitializeComponent();
+            ModelTimer.Tag = 0;
         }
 
         FormProperties aba = new FormProperties();
@@ -25,7 +26,6 @@ namespace Лаба_ООП_3
         int ccc = 0;
         int i = 0;
         decimal Cost;
-        bool ispaused = false;
 
         private void PrintStatistics()
         {
@@ -117,6 +117,7 @@ namespace Лаба_ООП_3
             toolStripButton_Stop.Enabled = true;
             toolStripButton_Start.Enabled = false;
             toolStripMenuItem_Start.Enabled = false;
+            toolStripButton_pause.Enabled = true;
 
             toolStripMenuItem_ModelSettings.Enabled = false;
 
@@ -221,6 +222,7 @@ namespace Лаба_ООП_3
 
             toolStripButton_Stop.Enabled = false;
             toolStripMenuItem_Stop.Enabled = false;
+            toolStripButton_pause.Enabled = false;
 
             toolStripMenuItem_ModelSettings.Enabled = true;
         }
@@ -264,18 +266,9 @@ namespace Лаба_ООП_3
 
         private void toolStripButton_pause_Click(object sender, EventArgs e)
         {
-            if (ispaused)
-            {
-                ModelTimer.Enabled = true;
-                ispaused = false;
-            }
-
-            else
-            {
-                ModelTimer.Enabled = false;
-                ispaused = true;
-            }
-
+                ModelTimer.Enabled =!ModelTimer.Enabled;
+                toolStripButton_pause.Image = imageList1.Images[1-(int)ModelTimer.Tag];
+                ModelTimer.Tag = 1 - (int)ModelTimer.Tag;
         }
     }
 }
