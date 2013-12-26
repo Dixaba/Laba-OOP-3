@@ -73,7 +73,7 @@ namespace Лаба_ООП_3
 
         private void toolStripButton_Start_Click(object sender, EventArgs e)
         {
-            double p1, p2;
+                        double p1, p2;
 
             p1 = Distrib.GetAvg(AvgCount / 3, 780, 175, TPeak1, 1) +
                 Distrib.GetAvg(AvgCount / 3, TPeak1, 35, TPeak1, 1) +
@@ -101,6 +101,9 @@ namespace Лаба_ООП_3
             toolStripMenuItem_Start.Enabled = false;
 
             toolStripMenuItem_ModelSettings.Enabled = false;
+
+            route.Reset();
+            bus.Reset();
 
             ModelTimer.Enabled = true;
         }
@@ -153,10 +156,23 @@ namespace Лаба_ООП_3
             if (i != 0 && i % bus.RidingTime == 0)
             {
                 bus.ThrowPassenger(i);
-                for (int j = 0; j < bus.FreeSeat; j++)
+                int n = bus.FreeSeat;
+                for (int j = 0; j < n; j++)
                     bus.SetPassenger(route.DequeuePassenger(bus.CurrentStation));
                 bus.Ride(route.StationsCount);
             }
+
+            listBox_ModelStations.Items.Clear();
+
+            for (int k = 0; k < route.StationsCount; k++)
+            {
+                listBox_ModelStations.Items.Add(k + "\t" + route.QueueSize(k));
+            }
+
+            toolStripStatusLabel2.Text = ((i / 60).ToString() + ":" + (i % 60).ToString());
+
+            toolStripStatusLabel1.Text = "Количество людей в ТС: " + (bus.BusCapacity - bus.FreeSeat);
+            listBox_ModelStations.SetSelected(bus.CurrentStation, true);
 
             toolStripProgressBar1.Value = i++;
         }
@@ -164,7 +180,7 @@ namespace Лаба_ООП_3
         private void toolStripButton_Stop_Click(object sender, EventArgs e)
         {
             ModelTimer.Enabled = false;
-            listBox_ModelStations.Items.Add(Count + "    " + LCount);
+            listBox_ModelStations.Items.Add("Пришло: " + Count + "    Обслуженно: " + Statistics.ServedCount);
 
             toolStripMenuItem_Start.Enabled = true;
             toolStripButton_Start.Enabled = true;
@@ -173,6 +189,16 @@ namespace Лаба_ООП_3
             toolStripMenuItem_Stop.Enabled = false;
 
             toolStripMenuItem_ModelSettings.Enabled = true;
+        }
+
+        private void radioButton_Fast_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton_Fast.Checked)
+            {
+                ModelTimer.Interval = 1;
+            }
+            else
+                ModelTimer.Interval = 250;
         }
     }
 }

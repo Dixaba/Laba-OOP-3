@@ -34,6 +34,17 @@ namespace Лаба_ООП_3
             return null;
         }
 
+        public int QueueSize (int i)
+        {
+            return Stations[i].Count;
+        }
+
+        public void Reset()
+        {
+            for (int i = 0; i < StationsCount; i++)
+                Stations[i].Clear();
+        }
+
         public int StationsCount { get; set; }
     }
 }

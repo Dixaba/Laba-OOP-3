@@ -16,7 +16,7 @@ namespace Лаба_ООП_3
 
         public void SetBus(int capacity, int time)
         {
-            FreeSeat = BusCapacity = capacity - 1;
+            FreeSeat = BusCapacity = capacity;
             BusContent = new LinkedList<Passenger>();
             RidingTime = time;
         }
@@ -56,6 +56,13 @@ namespace Лаба_ООП_3
                 BusContent.AddLast(p);
                 FreeSeat--;
             }
+        }
+
+        public void Reset()
+        {
+            FreeSeat = BusCapacity;
+            BusContent.Clear();
+            CurrentStation = 0;
         }
 
         #region Свойства
