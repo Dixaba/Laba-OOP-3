@@ -141,7 +141,7 @@
             this.toolStripProgressBar1,
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel1});
-            this.statusStrip_AllStat.Location = new System.Drawing.Point(0, 495);
+            this.statusStrip_AllStat.Location = new System.Drawing.Point(0, 531);
             this.statusStrip_AllStat.Name = "statusStrip_AllStat";
             this.statusStrip_AllStat.Padding = new System.Windows.Forms.Padding(1, 0, 21, 0);
             this.statusStrip_AllStat.Size = new System.Drawing.Size(746, 35);
@@ -172,7 +172,7 @@
             this.groupBox_RealTimeModel.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.groupBox_RealTimeModel.Name = "groupBox_RealTimeModel";
             this.groupBox_RealTimeModel.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.groupBox_RealTimeModel.Size = new System.Drawing.Size(395, 417);
+            this.groupBox_RealTimeModel.Size = new System.Drawing.Size(395, 458);
             this.groupBox_RealTimeModel.TabIndex = 2;
             this.groupBox_RealTimeModel.TabStop = false;
             this.groupBox_RealTimeModel.Text = "Модель в реальном времени";
@@ -249,14 +249,14 @@
             this.groupBox_ModelingProperties.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.groupBox_ModelingProperties.Name = "groupBox_ModelingProperties";
             this.groupBox_ModelingProperties.Padding = new System.Windows.Forms.Padding(5, 2, 5, 2);
-            this.groupBox_ModelingProperties.Size = new System.Drawing.Size(322, 417);
+            this.groupBox_ModelingProperties.Size = new System.Drawing.Size(322, 458);
             this.groupBox_ModelingProperties.TabIndex = 4;
             this.groupBox_ModelingProperties.TabStop = false;
             this.groupBox_ModelingProperties.Text = "Настройки данного моделирования";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(30, 252);
+            this.pictureBox1.Location = new System.Drawing.Point(30, 301);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(225, 125);
@@ -266,7 +266,7 @@
             // radioButton_Slow
             // 
             this.radioButton_Slow.AutoSize = true;
-            this.radioButton_Slow.Location = new System.Drawing.Point(9, 225);
+            this.radioButton_Slow.Location = new System.Drawing.Point(9, 274);
             this.radioButton_Slow.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton_Slow.Name = "radioButton_Slow";
             this.radioButton_Slow.Size = new System.Drawing.Size(260, 21);
@@ -279,7 +279,7 @@
             // 
             this.radioButton_Fast.AutoSize = true;
             this.radioButton_Fast.Checked = true;
-            this.radioButton_Fast.Location = new System.Drawing.Point(9, 199);
+            this.radioButton_Fast.Location = new System.Drawing.Point(9, 248);
             this.radioButton_Fast.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton_Fast.Name = "radioButton_Fast";
             this.radioButton_Fast.Size = new System.Drawing.Size(194, 21);
@@ -301,7 +301,7 @@
             this.Settings.Location = new System.Drawing.Point(9, 21);
             this.Settings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Settings.Name = "Settings";
-            this.Settings.Size = new System.Drawing.Size(304, 172);
+            this.Settings.Size = new System.Drawing.Size(304, 221);
             this.Settings.TabIndex = 0;
             this.Settings.UseCompatibleStateImageBehavior = false;
             this.Settings.View = System.Windows.Forms.View.Details;
@@ -337,7 +337,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 381);
+            this.label1.Location = new System.Drawing.Point(8, 430);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(247, 17);
             this.label1.TabIndex = 4;
@@ -347,7 +347,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(746, 530);
+            this.ClientSize = new System.Drawing.Size(746, 566);
             this.Controls.Add(this.groupBox_ModelingProperties);
             this.Controls.Add(this.toolStrip_MainTools);
             this.Controls.Add(this.groupBox_RealTimeModel);
